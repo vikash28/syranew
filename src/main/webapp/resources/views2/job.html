@@ -1,0 +1,96 @@
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a ui-sref="dashboard">Home</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a ui-sref="servercredentials">Job</a>
+        </li>
+    </ul>
+</div>
+                                    
+<div class="row" ng-controller="JobController as fancy">
+ 
+		<div class="portlet light">
+		    
+ 			
+             <!-- BEGIN FORM-->
+             	 <div class="portlet-body form">
+        
+ 
+                      <form name="myform" ng-submit="JobSubmit()"  novalidate >
+                        <h3 class="form-section">Location Info</h3> 
+ 						
+ 						
+ 						 <div class="row">
+                          <div class="col-md-12">
+                              <div class="form-group"  ng-class="{ 'has-error' : myform.jobname.$invalid && (myform.jobname.$dirty || submitted)}">
+                                 <label class="control-label">Job Name</label>
+ 									<input type="text" name="jobname"  ng-model="formData.jobname" class="form-control" placeholder="Job Name"   required> 
+ 									 <span class="help-block"  ng-show="myform.jobname.$error.required && (myform.jobname.$dirty || submitted)"> Your Job Name is required. </span>                
+                             </div>
+                         </div>
+                         
+                         
+                         <div class="col-md-6">
+                             <div class="form-group" >
+                                 <label class="control-label">Source</label>
+                                 <select class="bs-select form-control" data-show-subtext="true"  name="source" required>
+                                 <option data-icon="icon-info" value="">Select Source</option>
+                                  </select>                              
+                             </div>
+                         </div>
+                         
+                         <div class="col-md-6">
+                              <div class="form-group">
+                                 <label class="control-label">Destination</label>
+                                 <select class="bs-select form-control" data-show-subtext="true" name="destination" required>
+                                 <option data-icon="icon-info" value="">Select Destination</option>
+                                 </select>
+                                 
+                             </div>
+                         </div>
+                         
+                     <div class="col-md-6 {{sourceresult}}">
+                     <div class="form-group" >
+                                 <label class="control-label">Source Result</label>  
+                             		<multiselect-searchtree data-input-model="data" multi-select="true"
+                                            data-output-model="selectedItem" data-callback="CustomCallback(item, selectedItems)"
+                                            data-select-only-leafs="false" extra-buttons="true"></multiselect-searchtree>   
+                         </div>
+					</div>
+					
+					<div class="col-md-6 {{destinationresult}}">
+                       <div class="form-group"   >
+                                 <label class="control-label">Destination Result</label>
+                              <multiselect-searchtree data-input-model="data1" multi-select="false"
+                                            data-output-model="selectedItem1" data-callback="CustomCallback(item, selectedItems)"
+                                            data-select-only-leafs="false" extra-buttons="true"></multiselect-searchtree>   
+                    	 </div>
+                    </div>
+                    
+                    </div>
+                  	
+                     <h3 class="form-section">Comments</h3>
+                      <div class="row">
+                         <div class="col-md-12" ng-class="{ 'has-error' : myform.comments.$invalid && (myform.comments.$dirty || submitted)}">
+                             <div class="form-group">
+                                 <input type="text" name="comments" class="form-control" ng-model="formData.comments"    placeholder="keenthemes"  required> 
+                                 <span class="help-block"  ng-show="myform.comments.$error.required && (myform.comments.$dirty || submitted)"> Your Comments is required. </span>  
+                                 </div>
+                         </div>
+ 
+                     </div>
+					 <div class="form-actions center" align="center">
+                    
+                   <button type="submit" class="btn default"  ng-disabled="myform.$invalid"> <i class="fa fa-check"></i>  Create</button>
+                   <button type="reset" class="btn default">Reset</button>
+                 	</div> 
+              
+             	</form>
+             	 
+         	<!-- END FORM-->
+ 		 </div>	
+	  </div>
+ 	 </div>

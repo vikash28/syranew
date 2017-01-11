@@ -1,0 +1,9 @@
+ul.settings_nav{list-style-type: none;background: #E1EEF2;border-radius:5px;height: 40px;padding: 1%;}
+
+.settings_nav li{display:inline;margin-right:20px;font-weight:bold;}
+
+.settings_nav a{color:#000;}
+ul.settings_nav a:hover{text-decoration:underline;}
+
+
+h3{background:#DDD;padding:10px;border-radius:5px;}

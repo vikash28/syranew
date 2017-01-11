@@ -1,0 +1,59 @@
+{
+	"mappings": [
+	    {    
+	      "src": "admin/layout/",
+	      "dest": "../assets/admin/layout/css/" 
+	    },
+	    {
+	      "src": "admin/layout2/",
+	      "dest": "../assets/admin/layout2/css/" 
+	    },
+	    {
+	      "src": "admin/layout3/",
+	      "dest": "../assets/admin/layout3/css/" 
+	    },
+	    {
+	      "src": "admin/layout4/",
+	      "dest": "../assets/admin/layout4/css/" 
+	    },
+	    {
+	      "src": "admin/layout5/",
+	      "dest": "../assets/admin/layout5/css/" 
+	    },
+	    {
+	      "src": "admin/pages/",
+	      "dest": "../assets/admin/pages/css" 
+	    },
+	    {
+	      "src": "global/",
+	      "dest": "../assets/global/css" 
+	    },
+	    {
+	      "src": "frontend/onepage2",
+	      "dest": "../assets/frontend/onepage2/css" 
+	    }
+	],
+
+	
+	"ignores": ["*.css"],
+
+ 	"options": {
+
+ 		"outputStyle": "expanded",
+
+ 		"lineComments": false,
+
+ 		"debugInfo": false,
+
+ 		"sourceMap": false,
+
+ 		"unixNewlines": false
+	},
+
+ 
+	"customOptions": [],
+
+ 	"includePaths": [],
+
+ 	"requireLibs": []
+}

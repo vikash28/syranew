@@ -1,0 +1,92 @@
+[
+    {
+        "fieldDelim": "\\t",
+        "inputFormat": "org.apache.hadoop.mapred.TextInputFormat",
+        "outputFormat": "org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat",
+        "tableType": "EXTERNAL_TABLE",
+        "dataLocation": "hdfs://instance-2.c.compare-analytical-tools.internal:8020/user/hue/data",
+        "createTime": "Sun May 03 18:12:42 UTC 2015",
+        "owner": "hue",
+        "database": "default",
+        "schema": [
+            {
+                "column": "id",
+                "datatype": "text"
+            },
+            {
+                "column": "tweet",
+                "datatype": "text"
+            },
+            {
+                "column": "created_at",
+                "datatype": "text"
+            },
+            {
+                "column": "fcount",
+                "datatype": "text"
+            },
+            {
+                "column": "rcount",
+                "datatype": "text"
+            },
+            {
+                "column": "glocation",
+                "datatype": "text"
+            },
+            {
+                "column": "country",
+                "datatype": "text"
+            },
+            {
+                "column": "username",
+                "datatype": "text"
+            }
+        ],
+        "tableName": "twitterbigdata"
+    },
+    {
+        "fieldDelim": "\\t",
+        "inputFormat": "org.apache.hadoop.mapred.TextInputFormat",
+        "outputFormat": "org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat",
+        "tableType": "EXTERNAL_TABLE",
+        "dataLocation": "hdfs://instance-2.c.compare-analytical-tools.internal:8020/user/hue/data",
+        "createTime": "Sun May 03 14:14:20 UTC 2015",
+        "owner": "hue",
+        "database": "default",
+        "schema": [
+            {
+                "column": "id",
+                "datatype": "text"
+            },
+            {
+                "column": "tweet",
+                "datatype": "text"
+            },
+            {
+                "column": "created_at",
+                "datatype": "text"
+            },
+            {
+                "column": "fcount",
+                "datatype": "text"
+            },
+            {
+                "column": "rcount",
+                "datatype": "text"
+            },
+            {
+                "column": "glocation",
+                "datatype": "text"
+            },
+            {
+                "column": "country",
+                "datatype": "text"
+            },
+            {
+                "column": "username",
+                "datatype": "text"
+            }
+        ],
+        "tableName": "twitterbigdata_analytics"
+    }
+]

@@ -1,0 +1,18 @@
+/* CSS for Dashboard controller */
+
+tr, th {text-align:center;}
+
+.fa {transform: scale(1.5);color:#A3313E;margin-right:5px;margin-right: 15px;}
+.md {transform: scale(1.5);color:#A3313E;margin-right:5px;margin-right: 15px;}
+.panel-heading{text-align: center;border-radius: 10px;}
+.panel-heading h3{font-size:24px;}
+.modal-title{font-weight:bold;}
+
+.form-control{background-color:#FFFFFF;}
+
+
+label{font-weight:300;}
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control{background-color:#FFFFFF;}
+
+.md-print, .ion-person{font-size: 20px;margin-right: 15px;}

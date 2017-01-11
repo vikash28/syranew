@@ -1,0 +1,348 @@
+<style>
+.upload-drop-zone.drop {
+  border-color: #c14067;
+  border-width: 2px; 
+  border-style: dashed;
+  border: 2px solid #c14067!important;
+}
+.upload-drop-zone
+{
+border-width: 2px; 
+border-style: dashed;
+border-color: #c14067;
+display: block;
+position: relative; 
+z-index:1;
+min-height:500px;
+}
+ 
+.thumbnail .list-group-item-heading
+{
+color: #410a60;
+}
+.thumbnail .fa-bitbucket
+{
+color: #c14067 !important;
+}
+
+.thumbnail:hover
+{
+border-color: #c14067;;
+color: #000;
+background-color: #c14067;;
+}
+.thumbnail:hover .list-group-item-heading
+{
+color: #fff;
+}
+.thumbnail:hover .fa-bitbucket
+{
+color: #fff !important;
+} 
+
+.thumbnail:active
+{
+border-color: #c14067;;
+color: #000;
+background-color: #c14067;;
+}
+.thumbnail:active .list-group-item-heading
+{
+color: #fff;
+}
+.thumbnail:active .fa-bitbucket
+{
+color: #fff !important;
+}
+.thumbnail.drop 
+{
+border-color: #c14067;;
+color: #000;
+background-color: #c14067;;
+}
+.thumbnail.drop  .list-group-item-heading
+{
+color: #fff;
+}
+.thumbnail.drop  .fa-bitbucket
+{
+color: #fff !important;
+} 
+
+.buttoncolor
+{
+border-color: #c14067;;
+color: #fff;
+background-color: #c14067;;
+}
+
+  .buttoncolor:hover
+{
+border-color: #c14067;;
+color: #fff;
+background-color: #c14067;;
+}
+.buttoncolor:active
+{
+border-color: #c14067;;
+color: #fff;
+background-color: #c14067;;
+} 
+
+.showdiv
+{
+ opacity: 0.2;position:absolute;  top: 0; left: 0;background-color: #000; width: 100%;height: 100%; z-index:1; border-width: 2px; 
+border-style: dashed;
+border-color: #c14067;
+}
+
+.hidediv
+{
+ display: none;
+} 
+.thumbnailtable .fa-bitbucket
+{
+color: #c14067 !important;
+}
+
+.thumbnailtable:hover
+{
+border-color: #c14067;;
+color: #fff;
+background-color: #c14067;;
+}
+ 
+.thumbnailtable:hover .fa-bitbucket
+{
+color: #fff !important;
+} 
+
+.thumbnailtable:active
+{
+border-color: #c14067;;
+color: #fff;
+background-color: #c14067;;
+}
+ 
+.thumbnailtable:active .fa-bitbucket
+{
+color: #fff !important;
+}
+.thumbnailtable.drop 
+{
+border-color: #c14067;;
+color: #fff;
+background-color: #c14067;;
+}
+ 
+.thumbnailtable.drop  .fa-bitbucket
+{
+color: #fff !important;
+} 
+
+</style>
+<div class="page-bar">
+                            <ul class="page-breadcrumb">
+                                <li>
+                                    <a href="index.html">Home</a>
+                                    <i class="fa fa-circle"></i>
+                                </li>
+                                <li>
+                                    <a ui-sref="mydrive">AWS Account</a>
+                                </li>
+                            </ul>
+                        
+                        </div>
+                        <!-- END PAGE BAR -->
+                        <!-- BEGIN PAGE TITLE-->
+                        
+                      <!--   <h1 class="page-title" style='color:#c14067'>
+                        	<i class="fa fa-bitbucket" style='color:#c14067'></i> S3 Buckets
+                          	 <small>   <button type="button" class="btn  btn-s buttoncolor"  data-toggle="modal" data-target="#modal-fullscreen" ng-click="createbucket();"> <span class="glyphicon glyphicon-upload"></span> CREATE BUCKET</button></small>  
+                        </h1> -->
+                        <!-- END PAGE TITLE-->
+                        <!-- END PAGE HEADER-->
+                        <div class="row" ng-controller="MydriveController">
+                         	
+                        	<div class="col-md-12" id="drop-zone"  >
+                        	 <div class="hidediv" id='overlaydiv' > </div> 
+	         					<div class="row">
+		         					<div class="col-md-6" >
+		         						<h1 class="page-title" style='color:#c14067'>
+		                        		<i class="fa fa-bitbucket" style='color:#c14067'></i> S3 Buckets
+		                        		</h1>
+		                        	</div>
+		                        	 <div class="col-md-6" >
+		                        	 	  <h1  style='color:#c14067' align="right">
+		                        	 	  <button class="btn btn-default" type="button" id="refresh" title="Refresh"><i class="glyphicon glyphicon-refresh icon-refresh"></i></button>
+		                        	 	  <a href="#" id="list" class="btn btn-default btn-sm buttoncolor"><span class="glyphicon glyphicon-th-list">
+	            							</span> List</a> <a href="#" id="grid" class="btn btn-default btn-sm buttoncolor"><span
+	                						class="glyphicon glyphicon-th"></span> Grid</a>  
+		                          	 	  <button type="button" class="btn  btn-s buttoncolor"   ng-click="createbucket();"> <span class="glyphicon glyphicon-upload"></span> CREATE BUCKET</button> </h1> 
+		                        	</div> 
+	                        	</div>	
+<!-- 	                        	<div class="full-height-content full-height-content-scrollable">
+		                        	<div class="full-height-content-body scroller" ng-include="bucketcontentUrl">
+											 
+		   
+													
+		                            </div>
+						 		</div> --> 
+						 		<div class="portlet light" style="height: 400px;">  
+						 		<div class="portlet-body scroller"    style="height:400px;"> 
+						 		<div ng-include="bucketcontentUrl" ></div>
+						 		</div>
+						 		</div>
+                        	</div>
+                        	
+                            <div class="col-md-4" id="details" style="display:none;">
+                          	 	<h1 class="page-title" style='color:#c14067'>
+                        		<i class="fa fa-bitbucket" style='color:#c14067'></i> S3 Buckets Details
+                          	 	<small>    </small>  
+                        	 	</h1> 
+	                        	<hr></hr>
+	                        	<div class="portlet light bordered"   style="height: 400px;">
+	            					<div class="portlet-title">
+	                					<div class="caption">
+						                    <i class="icon-layers" style='color:#c14067'></i>
+						                    <span class="caption-subject bold uppercase" style='color:#c14067'>Details</span>
+						                    <span class="caption-helper hide"></span>
+						                </div>
+						                <div class="actions">
+						                     
+						                     
+						                    <a class="btn btn-circle btn-icon-only btn-default removeclick" href="#">
+						                        <i class="fa fa-ban" style='color:#c14067'></i>
+						                    </a>
+						                </div>
+	            					</div>
+	            					<div class="portlet-body scroller"   id="detailsvalue"  style="height:300px;"> 
+	             
+	            					</div>
+	        					</div>
+                        	</div>     
+                        	
+                        </div>
+ 
+<!-- template1.html -->
+<script type="text/ng-template" id="list.html">
+<div class="bootstrap-table"  >
+	<div class="fixed-table-container" style="padding-bottom: 0px; z-index:2; border-top: 1px solid #ddd;border: 0px solid #ddd; ">
+		<table class="table" style="padding: 10px!important; ">
+        <thead>
+        	<tr style="">
+            	<th style="text-align: left;font-weight: bold;border-left: none!important; border-right: none!important;"  ><div class="th-inner"> Bucket Name</div><div class="fht-cell"></div></th>
+            	<th style="text-align: left;font-weight: bold;border-left: none!important; border-right: none!important;"  ><div class="th-inner ">Owner</div><div class="fht-cell"></div></th>
+           	</tr> 
+        </thead>
+        <tbody>
+			<tr  class="thumbnailtable drop-zone-bucket"   ng-repeat="buildjson in buildjson_bucket"   on-finish-render="ngRepeatFinished" context-menu="menuOptions" id="{{buildjson.name}}" style="cursor: pointer;" ng-click="getbucketobject(buildjson.name);">
+				<td  style="text-align: left; word-wrap: break-word;;font-weight: bold;font-size: 12px;border-left: none!important; border-right: none!important;"><i class="fa fa-bitbucket" id="thumbnailicon" ></i> {{buildjson.name}}</td>
+				<td style="text-align: left; word-wrap: break-word;font-weight: bold;font-size: 12px;border-left: none!important; border-right: none!important;">  {{buildjson.owner.displayName}} </td>
+			</tr> 
+        </tbody>  
+        </table>
+   </div>
+</div>
+</script>
+ 
+<!-- template2.html -->
+<script type="text/ng-template" id="grid.html">
+<div id="products" class="row list-group"  style="padding-bottom: 0px; position: relative;z-index:2">
+	<div class="item  col-xs-4 col-lg-4"  ng-repeat="buildjson in buildjson_bucket"   on-finish-render="ngRepeatFinished">
+		<div  class="thumbnail drop-zone-bucket"  context-menu="menuOptions"  id="{{buildjson.name}}" style="cursor: pointer;" ng-click="getbucketobject(buildjson.name);">
+			<div class="caption">  
+				<h6 class="group inner list-group-item-heading" id="thumbnailheading" style="word-wrap: break-word;font-weight: bold;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+				<i class="fa fa-bitbucket" id="thumbnailicon" ></i>  {{buildjson.name}} </h6>
+				</div>  
+		</div>
+	</div>       											   
+</div> 
+</script>
+ 
+<style>
+.custom-menu {
+    display: none;
+    z-index: 1000;
+    position: absolute;
+}
+.custom-menu li {
+    padding: 15px 17px;
+    cursor: pointer;
+    width: 200px;
+}
+.custom-menu li:hover {
+border-color: #c14067;;
+color: #000;
+background-color: #c14067;;
+} 
+ 
+</style>        
+<ul class='custom-menu list-group' >
+  <li  ng-click="custommenu('getProperties');"  id="" class="list-group-item"><i class="icon-settings font-green-sharp"></i> Get Properties</li>
+<!--   <li  ng-click="custommenu('getLink');" id="" class="list-group-item"><i class="icon-settings font-green-sharp"></i> Get Link</li>
+ -->  
+ <li  ng-click="custommenu('deleteBucket');" id="" class="list-group-item"><i class="icon-settings font-green-sharp"></i> Delete Bucket</li>
+</ul>
+<script language="javascript">
+var i=0,j=0; 
+
+function myFunction(event,id)
+{
+	  
+	 event.preventDefault(); 
+	 $(".custom-menu>.list-group-item").attr('id',id);
+	 $(".custom-menu").finish().toggle(100).
+     css({
+    	top: event.pageY + "px",
+        left: event.pageX + "px"
+     });
+}
+ 
+$(document).bind("mousedown", function (e) {
+	    if (!$(e.target).parents(".custom-menu").length > 0) {
+	        $(".custom-menu").hide(100);
+	    }
+});
+$('.removeclick').click(function(){
+	 $('#details').toggle('slow');
+	 $( "#drop-zone" ).removeClass( "col-md-8" ).addClass( "col-md-12" );  
+});
+
+  
+  
+$(document).on('keypress', '.swal2-input', function(e){
+	  if (e.which == 95 ) {
+	        return false;
+	    }  
+	  if(e.keyCode >= 65 && e.keyCode <= 90){
+		  var char = String.fromCharCode(e.which),  isUpper = char == char.toUpperCase();
+		  if(isUpper){ return false;}
+	  }
+
+ 
+	 if( i == 1 && e.which == 46 ) { return false; }
+	 if( j == 1 && e.which == 45 ) { return false; }
+	 if( i == 1 && e.which != 46 ) { i=0;}
+	 if( j == 1 && e.which != 45 ) { j=0;}
+	 
+	 if(e.which == 45 ) { i=1;}
+	 if(e.which == 46 ) { j=1;}
+});
+
+$(document).on('contextmenu', '.swal2-input', function(e){
+	 event.preventDefault();
+});
+/* $(".custom-menu li").click(function(){
+var id=$(this).attr("id");
+switch($(this).attr("data-action")) {
+    case "first":    $( ".thumbnail"  ).removeClass( "thumbnail drop drop-zone-bucket" ).addClass( "thumbnail  drop-zone-bucket" );  $( "#"+id ).addClass( "thumbnail drop drop-zone-bucket" );      $( "#drop-zone" ).removeClass( "col-md-12" ).addClass( "col-md-8" ); $('#details').after().find('.caption-subject.bold.uppercase').html(id); $('#details').show(100); break;
+    case "second": alert("second"); break;
+    case "third":  deletebucket(); break;
+}
+$(".custom-menu").hide(100);
+}); */
+
+
+
+</script>

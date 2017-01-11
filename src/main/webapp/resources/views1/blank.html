@@ -1,0 +1,179 @@
+<!-- BEGIN PAGE BREADCRUMB -->
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a ui-sref="dashboard">Home</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li class="active"> Dashboard </li>
+</ul>
+<!-- END PAGE BREADCRUMB -->
+<!-- BEGIN MAIN CONTENT -->
+<div ng-controller="BlankController">
+     <div class="note note-info" style="display:non;">
+        <h3>Syra ETL Tool
+         </h3>
+         <p>Extract, Transform, Load (ETL) refers to a process in database usage and especially in data warehousing.ETL systems commonly integrate data from multiple applications (systems), typically developed and supported by different vendors or hosted on separate computer hardware.The first part of an ETL process involves extracting the data from the source system(s).In the data transformation stage, a series of rules or functions are applied to the extracted data in order to prepare it for loading into the end target.The load phase loads the data into the end target that may be a simple delimited flat file or a data warehouse. Depending on the requirements of the organization, this process varies widely.ETL processes can involve considerable complexity, and significant operational problems can occur with improperly designed ETL systems.
+         </p>
+  
+    </div>
+    <!-- BEGIN DASHBOARD STATS -->
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="dashboard-stat blue">
+                <div class="visual">
+                    <i class="fa fa-comments"></i>
+                </div>
+                <div class="details">
+                    <div class="number">  {{ no_of_connection}}</div>
+                    <div class="desc"> Total Connection </div>
+                </div>
+               
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="dashboard-stat red">
+                <div class="visual">
+                    <i class="fa fa-bar-chart-o"></i>
+                </div>
+                <div class="details">
+                    <div class="number"> 0</div>
+                    <div class="desc"> Total Mapping </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="dashboard-stat green">
+                <div class="visual">
+                    <i class="fa fa-shopping-cart"></i>
+                </div>
+                <div class="details">
+                    <div class="number"> {{ no_of_folder}} </div>
+                    <div class="desc"> Total Folder </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="dashboard-stat purple">
+                <div class="visual">
+                    <i class="fa fa-globe"></i>
+                </div>
+                <div class="details">
+                    <div class="number"> {{ no_of_user}} </div>
+                    <div class="desc"> Total User </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- END DASHBOARD STATS -->
+     <div class="row">
+        <div class="col-md-6 col-sm-6">
+            <!-- BEGIN REGIONAL STATS PORTLET-->
+            <div class="portlet light bordered ">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="icon-share font-green"></i>
+                        <span class="caption-subject font-green bold uppercase">Last Activities</span>
+                    </div>
+                    <div class="actions">
+                         
+                        <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="#"> </a>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="scroller" style="height: 300px;" data-always-visible="1" data-rail-visible="0">
+                        <ul class="feeds">
+                            <li>
+                                <div class="col1">
+                                    <div class="cont">
+                                        <div class="cont-col1">
+                                            <div class="label label-sm label-info">
+                                                <i class="fa fa-check"></i>
+                                            </div>
+                                        </div>
+                                        <div class="cont-col2">
+                                            <div class="desc"> You have 4 pending tasks.
+                                                <span class="label label-sm label-warning "> Take action
+                                                    <i class="fa fa-share"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col2">
+                                    <div class="date"> Just now </div>
+                                </div>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                    <div class="scroller-footer">
+                        <div class="btn-arrow-link pull-right">
+                            <a href="#">See All Records</a>
+                            <i class="icon-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END REGIONAL STATS PORTLET-->
+        </div>
+        <div class="col-md-6 col-sm-6">
+            <!-- BEGIN PORTLET-->
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption caption-md">
+                        <i class="icon-user font-green"></i>
+                        <span class="caption-subject font-green bold uppercase">User Visit</span>
+                        
+                    </div>
+                    <div class="inputs">
+                        <div class="portlet-input input-inline input-small ">
+                            <div class="input-icon right">
+                                <i class="icon-magnifier"></i>
+                                <input type="text" class="form-control form-control-solid input-circle" placeholder="search..."> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="scroller" style="height: 329px;" data-always-visible="1" data-rail-visible1="0" data-handle-color="#D7DCE2">
+                        <div class="general-item-list">
+                            <div class="item" ng-repeat="log in userlogdata">
+                                <div class="item-head">
+                                    <div class="item-details">
+                                         <a href="javascript:void(0)" class="item-name primary-link">Login</a>
+                                        <span class="item-label"> at {{ toDate(log.logTime) }} on {{ toTime(log.logTime) }}</span> 
+                                    </div>
+                                    <span class="item-status"> 
+                                         <span class="badge badge-empty badge-success"></span> Sucessfull
+       											</span>
+                                 </div>
+                            </div>
+                            
+<!--                              <div class="item"> -->
+<!--                                 <div class="item-head"> -->
+<!--                                     <div class="item-details"> -->
+<!--                                          <a href="" class="item-name primary-link">Nick Larson</a> -->
+<!--                                         <span class="item-label">3 hrs ago</span> -->
+<!--                                     </div> -->
+<!--                                     <span class="item-status"> -->
+<!--                                         <span class="badge badge-empty badge-success"></span> Open</span> -->
+<!--                                 </div> -->
+<!--                                 <div class="item-body"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </div> -->
+<!--                             </div> -->
+                             
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END PORTLET-->
+        </div>
+    </div>
+</div>
+<!-- END MAIN CONTENT -->
+<!-- BEGIN MAIN JS & CSS -->
+<script>
+    //Dashboard.init();
+</script>
+<!-- BEGIN MAIN JS & CSS -->

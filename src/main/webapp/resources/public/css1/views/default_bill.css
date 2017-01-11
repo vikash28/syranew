@@ -1,0 +1,22 @@
+/* CSS for Default Bill */
+
+html{background:#FFF;}
+
+.default_bill{/*border:1px solid #DDD;*/padding:20px;margin: 0 auto;margin-top:5px;margin-left:5%;margin-right:5%;}
+.hotel_logo{width:280px;height:124px;float:left;}
+.hotel_info{float:right;text-align:right;}
+.default_bill_header{border-bottom:1px solid #DDD;}
+.default_bill_body{padding:20px;}
+.default_bill_footer{border-top:1px solid #DDDDDD;font-weight:bold;}
+.value_lower{float:right;font-weight:normal;}
+.value_upper{float:right;font-weight:normal;}
+
+.upper_table{width:100%;}
+.upper_table td{font-weight:normal;color:#000;width:10%;}
+
+.lower_table{width:100%;margin-left:10%;margin-right:10%;}
+.lower_table td{font-weight:normal;color:#000;width:25%;}
+
+.upper_table{width:100%;}
+.upper_table td{font-weight:normal;color:#000;width:10%;}
+

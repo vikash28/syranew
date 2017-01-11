@@ -1,0 +1,12 @@
+/* CSS for Status_Calendar */
+
+.badge{padding:10px;}
+.badge_text_custom{margin-left:10px;text-transform:uppercase;}
+.panel-title{text-align:center;}
+.panel-color .panel-title {
+    color: #000000;font-size:22px;
+}
+
+.room-name-title{font-size: 14px;font-weight: 600;text-transform: uppercase;text-align:center;}
+
+.current_date{text-align:center;font-weight:bold;font-size:30px;}

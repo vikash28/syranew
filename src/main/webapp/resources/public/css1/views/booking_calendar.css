@@ -1,0 +1,56 @@
+/* CSS for Central Reservation controller */
+
+label{font-weight:normal;}
+.form-control {background-color:#FFF;}
+
+#checkbox1{width:20px;height:20px;}
+
+.modal-footer{text-align:center;}
+
+.fa{color:#000;font-size:20px;}
+.alert-warning{min-height:65px;}
+.alert-warning a{color:#000; font-size: 15px;text-transform: uppercase}
+.alert-warning a:hover{text-decoration:underline;}
+.fa-envelope:before, .fa-mobile:before, .fa-print:before, .fa-file-text-o{font-size: 30px;margin-right: 10px;vertical-align: middle;}
+#send-email-modal{width:80%;margin:0 auto;}
+
+.modal-title{font-weight:bold;}
+
+#bank_details_central_reservation{margin-left:20%;}
+#cheque_number, #bank_name, #cheque_date{width:130px;}
+
+button.add_more_room, button.add_inclusion{color:#EEE;background-color: #33b86c !important;border: 1px solid #33b86c !important;font-size: 20px;padding: 0px;width: 35px;height: 35px;float:right;margin-right:5px;}
+button.remove_room, button.remove_inclusion{color:#EEE;background-color: #ef5350 !important;border: 1px solid #ef5350 !important;font-size: 20px;padding: 0px;width: 35px;height: 35px;float:right;margin-right:5px;}
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    background-color: #FFF;
+    opacity: 1;
+}
+
+
+/* Booking Form Modal CSS */
+
+.modal-title{font-weight:bold;} .form-control{background-color: #FFF;}
+.panel-primary > .panel-heading {background-color: #337ab7;}
+.navtab-bg{background: #E1EEF2;}
+
+
+.modal-footer {text-align: left;}
+
+label{font-weight:normal;}
+.booking_calendar_day_label{font-size:30px;font-weight:bold;}
+
+#room_row{background: #E1EEF2;margin-left:10%;margin-right: 1%;width: 97%;margin-left: 1%;margin-top: 30px;border-radius: 5px;padding-top: 20px;}
+.modal{background-color:#DDD;/*background: rgba(1,1,1,0.6);*/}
+
+.previous_next_buttons {margin-top:10px;color:#000;}
+.previous_next_buttons input{    border-radius: 5px;
+    padding: 0px;
+    width: 50px;
+    background: #B8C1C9;
+    border: 1px solid #000;
+    font-family: 'Nunito', sans-serif;
+    letter-spacing: 0.2px;
+    opacity: 0.93;}
+.previous_next_buttons input:hover{background-color:#000;border-radius:5px;color:#EEE;}
+

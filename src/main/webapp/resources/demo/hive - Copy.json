@@ -1,0 +1,64 @@
+[
+    {
+        "createTime": "Sun May 10 23:42:45 IST 2015",
+        "database": "default",
+        "fieldDelim": ",",
+        "inputFormat": "org.apache.hadoop.mapred.TextInputFormat",
+        "outputFormat": "org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat",
+        "tableType": "EXTERNAL_TABLE",
+        "dataLocation": "hdfs://localhost:8020/conf/event",
+        "tableName": "event2",
+        "schema": [
+            {
+                "column": "eventid",
+                "datatype": "text"
+            },
+            {
+                "column": "venueid",
+                "datatype": "text"
+            },
+            {
+                "column": "catid",
+                "datatype": "text"
+            },
+            {
+                "column": "dateid",
+                "datatype": "text"
+            },
+            {
+                "column": "eventname",
+                "datatype": "text"
+            },
+            {
+                "column": "starttime",
+                "datatype": "text"
+            }
+        ],
+        "owner": "sany"
+    },
+    {
+        "createTime": "Thu Mar 26 22:36:32 IST 2015",
+        "database": "default",
+        "fieldDelim": null,
+        "inputFormat": "org.apache.hadoop.hive.cassandra.input.cql.HiveCqlInputFormat",
+        "outputFormat": "org.apache.hadoop.hive.cassandra.output.cql.HiveCqlOutputFormat",
+        "tableType": "EXTERNAL_TABLE",
+        "dataLocation": "hdfs://localhost:8020/user/hive/warehouse/messages",
+        "tableName": "messages",
+        "schema": [
+            {
+                "column": "row_key",
+                "datatype": "text"
+            },
+            {
+                "column": "col1",
+                "datatype": "text"
+            },
+            {
+                "column": "col2",
+                "datatype": "text"
+            }
+        ],
+        "owner": "sany"
+    }
+]

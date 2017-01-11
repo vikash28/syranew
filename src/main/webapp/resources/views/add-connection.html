@@ -1,0 +1,195 @@
+<!-- NEW CONNECTION MODEL -->
+<div role="dialog" class="modal fade bs-modal-lg" id="myModal_newconnection"  tabindex="-1" data-backdrop="static" data-keyboard="false">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+				<h4 class="modal-title">Create New Connection</h4>
+			</div>
+			<div class="modal-body form">
+				<form action="#" class="form-horizontal" id="connectionForm" method="POST">
+					<div class="form-wizard">
+						<div class="form-body">
+							<div>
+								<div class="alert alert-danger display-none">
+									<button class="close" data-dismiss="alert"></button>
+									You have some form errors. Please check below.
+								</div>
+								<div class="alert alert-success display-none">
+									<button class="close" data-dismiss="alert"></button>
+									Your form validation is successful!
+								</div>
+
+								<div class="form-group">
+									<label class="control-label col-sm-4">Connection Name <span class="required">
+									* </span>
+									</label>
+									<div class="col-sm-8">
+										<input type="hidden" class="form-control" id="connId" value="-1"/>
+										<input type="text" class="form-control" name="connectionName" value="" required/>
+										<span class="help-block">
+										Provide a name for this Connection </span>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-4">Server <span class="required">
+									* </span>
+									</label>										
+									<div class="btn-group">
+										<label class="btn btn-info btn-server-type btn-server-type-Hive" ng-model="connectionType" btn-radio="'Hive'">Hive</label>
+										<label class="btn btn-info btn-server-type btn-server-type-HDFS" ng-model="connectionType" btn-radio="'HDFS'">HDFS</label>
+										<label class="btn btn-info btn-server-type btn-server-type-Redshift" ng-model="connectionType" btn-radio="'Redshift'">Redshift</label>
+									</div>
+									<input type="hidden" class="form-control" name="connectionType" value="{{connectionType}}"/>
+								</div>
+
+								<h4 class="block col-sm-offset-3">Provide your <b>{{ connectionType }}</b> server details</h4>
+									
+								<div class="hiveServerInfo" ng-class="connectionType == 'Hive' ? 'connectionTypeActive' : 'connectionTypeDisabled'">
+									<div class="form-group">
+										<label class="control-label col-sm-4">Hive Thrift Server <span class="required">
+										* </span>
+										</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control" name="hiveThriftServer" value="" required />
+											<span class="help-block">
+											Provide your Hive Thrift Server </span>
+										</div>
+									</div>
+								</div>
+
+								<div class="hdfsServerInfo" ng-class="connectionType == 'HDFS' ? 'connectionTypeActive' : 'connectionTypeDisabled'">
+									<div class="form-group">
+										<label class="control-label col-sm-4">HDFS Connection String <span class="required">
+										* </span>
+										</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control" name="hdfsConnectionString" value=""  required />
+											<span class="help-block">
+											Provide your HDFS Connection String </span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-sm-4">HDFS Path<span class="required">
+										* </span>
+										</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control" name="hdfsPath" value="" required />
+											<span class="help-block">
+											Provide your HDFS Path </span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-sm-4">HDFS Access User<span class="required">
+										* </span>
+										</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control" name="hdfsAccessUser" value="" required />
+											<span class="help-block">
+											Provide your HDFS Access User </span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-sm-4">Separator<span class="required">
+										* </span>
+										</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control" name="hdfsFieldDelim" value="" required />
+											<span class="help-block">
+											Provide the Field Separator </span>
+										</div>
+									</div>
+								</div>
+								<div class="redshiftServerInfo" ng-class="connectionType == 'Redshift' ? 'connectionTypeActive' : 'connectionTypeDisabled'">
+									<div class="row">
+										<div class="col-sm-6">
+											<!--h4 class="block">Provide your Redshift database details</h4-->
+											<div class="form-group">
+												<label class="control-label col-sm-12 left">Redshift DB URL <span class="required">
+												* </span>
+												</label>
+												<div class="col-sm-12">
+													<input type="text" class="form-control" name="redshiftDbUrl" value="" required />
+													<span class="help-block">
+													Provide your Redshift DB URL </span>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-sm-12 left">Redshift User <span class="required">
+												* </span>
+												</label>
+												<div class="col-sm-12">
+													<input type="text" class="form-control" name="redshiftUser" value="" required />
+													<span class="help-block">
+													Provide your Redshift User name </span>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-sm-12 left">Redshift Password <span class="required">
+												* </span>
+												</label>
+												<div class="col-sm-12">
+													<input type="password" class="form-control" name="redshiftPassword" value="" required />
+													<span class="help-block">
+													Provide your Redshift Password </span>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<!--h4 class="block">Amazon S3 Details</h4-->
+											
+											<div class="form-group">
+												<label class="control-label col-sm-12 left">S3 Access Key <span class="required">
+												* </span>
+												</label>
+												<div class="col-sm-12">
+													<input type="text" class="form-control" name="s3AccessKey" value="" required />
+													<span class="help-block">
+													Provide your S3 Access Key </span>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-sm-12 left">S3 Secret Key <span class="required">
+												* </span>
+												</label>
+												<div class="col-sm-12">
+													<input type="text" class="form-control" name="s3SecreteKey" value="" required />
+													<span class="help-block">
+													Provide your S3 Secret Key </span>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-sm-12 left">HDFS Temp Directory<span class="required">
+												* </span>
+												</label>
+												<div class="col-sm-12">
+													<input type="text" class="form-control" name="hdfsTempDir" value="" required />
+													<span class="help-block">
+													Provide your HDFS Temp Directory </span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>			
+			</div>
+			<div class="modal-footer">
+				<button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+				<button class="btn btn-default" type="reset" ng-click="reset()">Reset</button>
+				<button class="btn btn-primary" type="submit" ng-click="save()"><i class="fa fa-check"></i> Save changes</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END NEW CONNECTION MODAL-->
+<style type="text/css">
+.connectionTypeActive{
+	display: block;
+}
+.connectionTypeDisabled{
+	display: none;
+}
+</style>

@@ -1,0 +1,488 @@
+#redips-drag{
+	-webkit-user-select: none;
+  -moz-user-select: none; 
+  -ms-user-select: none; 
+  user-select: none;  
+}
+.mt10{margin-top: 10px;}
+.mt20{margin-top: 20px;}
+.mt25{margin-top: 25px;}
+.mt30{margin-top: 30px;}
+.mt40{margin-top: 40px;}
+.mt50{margin-top: 50px;}
+.mtb20{margin-top: 20px; margin-bottom: 20px}
+.mtb25{margin-top: 25px; margin-bottom: 25px}
+.mtb30{margin-top: 30px; margin-bottom: 30px}
+.mtb40{margin-top: 40px; margin-bottom: 40px}
+.paddingl10{padding-left: 10px;}
+.paddingl20{padding-left: 20px;}
+.paddingl30{padding-left: 30px;}
+.top-calender-bar
+{
+	background: #2D2E3F;
+	color: #fff;
+}
+.top-calender-bar.topstick{
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	z-index: 100;
+	left:0;
+}
+
+
+.top-calender-bar .col-md-5,
+.top-calender-bar .col-md-4,
+.top-calender-bar .col-md-3{
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+}
+.top-calender-bar .col-md-4{
+	padding-left: 14px;
+	border-left: 1px solid #595A69;
+	border-right: 1px solid #595A69;
+}
+.container{
+	max-width: 1170px;
+	
+}
+.indication-list{
+	/*border: 1px solid red;*/
+	list-style: none;
+	padding: 0px;
+	margin-bottom: 0px;
+	
+}
+.indication-list:before,
+.indication-list:after{
+	content: '';
+	display: block;
+	position: relative;
+	clear: both;
+}
+
+.indication-list li{
+	width: 50%;
+	float: left;
+	text-transform: uppercase;
+	font-size: 14.5px;
+	font-weight: 100;
+	color: #595A69;
+	padding-top: 6px;
+	padding-bottom: 6px;
+}
+.indication-list li strong{color: #fff; margin-left: 5px;}
+.indication-list li .occupied-dot,
+.indication-list li .onhold-dot,
+.indication-list li .maintenance-dot,
+.indication-list li .available-dot,
+.indication-list li .booked-dot
+{
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	vertical-align: middle;
+	margin-top: -2px;
+	margin-right: 4px;
+}
+.indication-list li .occupied-dot{
+	background: #ff6600;
+}
+.indication-list li .onhold-dot
+{
+	background: #ffff66;
+}
+.indication-list li .booked-dot
+{
+	background: #f37f7d;
+}
+.indication-list li .maintenance-dot
+{
+	background: #00ccff;
+}
+.indication-list li .available-dot
+{
+	background: #FFFFFF;
+}
+.book-btn{
+	background: #67CA91;
+	border: 1px solid #67CA91;
+	text-transform: uppercase;
+	border-radius:5px;
+	min-width: 180px;
+	line-height: 38px;
+	min-height: 42px;
+	font-size: 19px;
+	font-weight: bold;
+	margin-top: 12px;
+	opacity: 0.5;
+	transition: 1s;
+}
+.book-btn.glow-btn{
+	opacity: 1;
+	animation: btnanim 2s linear;
+}
+@keyframes btnanim{
+	0%{box-shadow: 0px 0px 1px #FFE57F;}
+	49%{box-shadow: 0px 0px 44px #FFE57F;}
+	50%{box-shadow: 0px 0px 44px #FFE57F;}
+	100%{box-shadow: 0px 0px 1px #FFE57F;}
+}
+
+.calendar-box{
+	/*margin-top: 5px;*/
+	border: 1px solid #ddd;
+	border-top: none;
+	margin-bottom: 50px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.user-profile-box h5.media-heading{
+	text-transform: uppercase;
+	color: #F37F7D;
+	font-size: 16px;
+}
+.user-profile-box p{
+	line-height: 21px;
+}
+.user-profile-box p a{text-decoration: none; color: #333;}
+
+.cancle-btn, .edit-btn
+{
+	min-width: 200px;
+	margin-left: 4px;
+	margin-right: 4px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	min-height: 44px;
+	text-transform: uppercase;
+	line-height: 38px;
+	font-size: 19px;
+	font-weight: bold;
+	color: #fff;
+}
+.cancle-btn
+{
+	background: #F37F7D;
+	border:1px solid  #F37F7D;
+}
+.edit-btn
+{
+	background: #67CA91;
+	border:1px solid  #67CA91;
+}
+.calendar-months{
+	position: absolute;
+	padding-top: 2px;
+}
+.calendar-months .glyphicon-calendar{
+	display: inline-block;
+	margin-right: 6px;
+	color: #595A69;
+	font-size: 18px;
+	vertical-align: middle;
+}
+.month-text{font-size: 16px; font-weight: 100;}
+.calendar-months .glyphicon-triangle-left:hover,
+.calendar-months .glyphicon-triangle-right:hover{
+	cursor: pointer;
+	color: #595A69;
+}
+
+.select-month-hotel{
+	padding: 0px;
+	margin-top: 16px;
+}
+.select-month-hotel li{
+	list-style: none;
+}
+.select-month-hotel select{
+	/*background: transparent;*/
+	border: 1px solid #595A69;
+	font-size: 10px;
+	height: 25px;
+	text-transform: uppercase;
+	padding: 0px 10px 0px 10px;
+	float: right;
+	margin-top: 20px;
+}
+.select-month-hotel select option
+{
+	padding-top: 8px;
+	padding-bottom: 8px;
+
+}
+.select-month-hotel label input{
+	display: none;
+}
+.select-month-hotel label input:checked~span{
+	background: #595A69;
+	color: #8A8CA3;
+}
+.select-month-hotel label{
+	float: left;
+	/*border: 1px solid red;*/
+	margin-top: 20px;
+	margin-bottom: 0px;
+}
+.select-month-hotel label span{
+	font-size: 10px;
+	width: 70px;
+	text-align: center;
+	padding: 0px 10px 0px 10px;
+	height: 25px;
+	/*width: 50%;*/
+	color: ;
+	border: 1px solid #595A69;
+	display: inline-block;
+	line-height: 22px;
+	margin-left: -1px;
+}
+
+/*//*/
+.cell{
+  text-align:center;
+  font-size: 10px;
+}
+.initcell{
+    color:#D6D6D6;
+    font-size: 10px;
+    text-align: center;
+    /*border: 0;*/
+    padding: 0px;
+}
+.initcell.green-white{
+	background: #67CA91!important;
+	background-color: #67CA91!important;
+	color: #67CA91!important;
+	z-index: 5!important;
+}
+.initcell.green-white.hover{
+	background: #67CA91!important;
+	z-index: 5!important;
+}
+
+.redips-drag {
+    cursor: move;
+    margin: auto;
+    border: 0;
+}
+
+
+div#redips-drag td {
+    border: 0 white solid;
+    text-align: center;
+}
+.datacell{
+    color: #000;
+}
+table#view, .table-common {
+   width: 100%;
+   border: 1px solid transparent;
+   border-collapse: collapse;
+   background: #fff;
+   border-spacing: 0;
+}
+table#view th, .table-common th, .common-weekly th{border: 1px solid #eee!important;}
+table#view td, .table-common td{
+    border: 1px solid #eee!important;
+    position: relative;
+    width: 30px!important;
+    height: 50px!important;
+    max-height: 50px!important;
+}
+table#view tbody tr td, .table-common tbody tr td{
+	color: #fff;
+}
+table#view colgroup col:first-child,
+.table-common colgroup col:first-child{
+	width: 240px!important;
+}
+
+table#view.weekly-table thead th:first-child,
+table#view.weekly-table tbody td:first-child
+{
+	width: 270px!important;
+}
+table#view.weekly-table thead th
+{
+	width: 11%;
+}
+table#view.weekly-table tbody td div.cell,
+table#view.weekly-table.table-common tbody td div.cell
+{
+	width: 100%!important;
+} 
+
+table#view thead tr th, .table-common thead tr th, .common-weekly tr th{
+	text-align: center;
+	font-size: 14px;
+	height: 50px;
+}
+table#view thead tr th:first-child,
+table#view tbody tr th:first-child,
+.table-common thead tr th:first-child,
+.table-common tbody tr th:first-child
+{
+	border-left: none!important;
+}
+table#view thead tr th:last-child,
+table#view tbody tr td:last-child,
+.table-common thead tr th:last-child,
+.table-common tbody tr td:last-child
+{
+	border-right: none!important;
+}
+.day-text{
+	display: block;
+	font-size: 10px;
+	font-weight: normal;
+}
+.day-sun-sat { background-color: #F9F4DF;}
+.cell{ height: 48px!important;cursor:pointer;}
+.green{ background-color: #67CA91; }
+.booked{ background-color: #f37f7d;cursor:pointer; }
+.occupied{ background-color: #ff6600;cursor:pointer; }
+.onhold{ background-color: #ffff66 ; }
+.maintenance{ background: #00ccff;cursor:pointer; } 
+.gray-row{ background: #F8F8F8; }
+
+.thin-text{
+	text-indent: 10px;
+	font-weight: normal;
+	text-transform: uppercase;
+}
+.font10{font-size: 10px!important;}
+.font12{font-size: 12px!important;}
+.font13{font-size: 13px!important;}
+.font14{font-size: 14px!important;}
+.font15{font-size: 15px!important;}
+.font16{font-size: 16px!important;}
+.font17{font-size: 17px!important;}
+.font18{font-size: 18px!important;}
+table#view th.room-status-bar, .table-common th.room-status-bar{
+	position: relative;
+	border-right: none!important;
+	padding-left: 10px;
+	padding-right: 10px;
+	background: #E1EEF2;
+	cursor: default;
+}
+table#view th.room-status-bar:hover{
+	background: #a8e3f5;
+	transition: 500ms;
+	cursor: pointer;
+}
+
+table#view th.room-status-bar h4{
+	font-size: 18px;
+	text-transform: uppercase;
+}
+table#view th.room-status-bar ul{
+	list-style: none;
+	padding: 0px;
+	/*border: 1px solid red;*/
+	display: inline-block;
+	position: absolute;
+	right: 40px;
+	top: 6px;
+}
+table#view th.room-status-bar ul li{
+	display: inline-block;
+	font-weight: normal;
+	font-size: 14px;
+	margin-left: 14px;
+	line-height: 32px;
+	color: #555;
+}
+table#view th.room-status-bar ul li h5{
+	font-size: 18px;
+	margin: 0px;
+}
+.all-collapse{
+	position: relative;
+	text-align: left!important;
+	text-indent: 10px;
+	color: #B8C1C9;
+}
+.all-collapse:hover{
+	cursor: pointer;
+	background: #E1EEF2;
+	transition: 500ms;
+}
+
+.thin-head{
+	font-weight: normal;
+	text-transform: uppercase;
+}
+
+.arrow-mover .collapse-arrow{
+	transition: 800ms;
+	transform: rotate(90deg);
+	-webkit-transform: rotate(90deg);
+}
+.collapse-arrow{
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	background: #B8C1C9;
+	display: inline-block;
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	margin-top: -10px;
+	transition: 800ms;
+}
+.collapse-arrow:before{
+	content: '';
+	position: absolute;
+	left: 7px;
+	top: 4px;
+	width: 0; 
+	height: 0; 
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent;
+	border-left: 6px solid #E1EEF2;
+}
+
+#redips-drag td.divider-collapse{
+	height: 6px!important;
+}
+table#view{
+	overflow: hidden;
+}
+
+table#view tbody td,
+table#view thead th {
+    position: relative;
+    z-index: auto;
+}
+table#view tbody tr:nth-child(1) td:nth-child(1){
+	z-index:2;
+}
+
+
+table#view tbody td.hover{
+	background: #eee;
+	color: #eee;
+	z-index:1;
+	position: relative;
+	cursor:grab;
+}
+
+#header-fixed{
+	display: none;
+	position: fixed;
+	z-index: 99
+}
+
+.nav-tabs>li {float: right;margin-top: 5px;}
+.nav-tabs>li a {color:#000;font-weight:bold;}
+.navtab-bg,.nav.nav-tabs > li.active > a{border-radius:5px;}
+.tab-content {box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);color: #000;overflow: hidden;}
+
+/* Tutorial Video Modal - http://schoberg.net/2015/08/fast-agile-youtube-embed-responsive-iframe-load-delay-with-jquery/ */
+.youtube::after,.youtube::before{content:'';display:block;top:50%;left:50%}.youtube{position:relative;cursor:pointer;background:center center/cover no-repeat #ccc;padding-bottom:56.25%;height:0;clear:both}.youtube::before{background:rgba(255,255,255,.6);height:80px;width:80px;margin:-40px 0 0 -40px;border-radius:100px;position:absolute;box-shadow:0 0 20px 3px rgba(51,51,51,.8);transition:all .1s ease;z-index:1}.youtube:hover::before{background:rgba(238,238,238,.8);box-shadow:0 0 10px 3px rgba(51,51,51,.8);width:100px;height:100px;margin:-50px 0 0 -50px}.youtube::after{line-height:0;border-style:solid;border-width:20px 0 20px 40px;margin:-20px 0 0 -15px;border-color:transparent transparent transparent #333;position:absolute;height:0;width:0;z-index:2}.youtube iframe{width:100%;height:100%;position:absolute;top:0;left:0;z-index:3}

@@ -1,0 +1,265 @@
+<div class="page-sidebar"  >
+    <!-- BEGIN SIDEBAR MENU -->
+    <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+    <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+    <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+    <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+    <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+    <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+    <ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" ng-class="{'page-sidebar-menu-closed': settings.layout.pageSidebarClosed}">
+      
+        <li class="heading">
+            <h3 align="center">Repository</h3>
+        </li>
+        <li  id="jstree" class="proton-demo" ></li>
+   <!--      <li  id="jstree-proton-2" class="proton-demo" >
+ 						<ul>
+                                <li data-jstree='{ "icon" : "icon-home icon-state-success"  }'><a  ui-sref="dashboard"><strong>Dashboard </strong></a> </li>
+                                <li data-jstree='{ "icon" : "fa icon-user icon-state-success icon-lg" , "selected": true, "opened": true }'><a  ui-sref="blank" id="main_user_1"><strong>User - {{ settings.userName}} </strong></a> 
+                                     <ul>
+                                        <li   data-jstree='{ "icon" : "fa icon-puzzle icon-state-success icon-lg" }'>
+                                            <a  id="connection_1" href="#">Connection</a>
+                                            <ul >
+                                                <li ng-modal="myservice" ng-repeat="my in myservice">{{my.name}}</li>
+                                            </ul>
+                                        </li>
+                                        
+                                        <li   data-jstree='{ "icon" : "fa icon-wrench icon-state-success icon-lg" }'>
+                                            <a  id="mapping_1" href="#">
+ 													Mapping
+                                            </a>
+                                            <ul>
+                                                <li>Another node</li>
+                                            </ul>
+                                        </li>
+                                         
+                                        <li   data-jstree='{ "icon" : "fa icon-magic-wand icon-state-success icon-lg" }'>
+                                            <a   href="#">
+ 													Transformer
+                                            </a>
+                                            <ul>
+                                                <li>Another node</li>
+                                            </ul>
+                                        </li>
+                                        
+                                        <li   data-jstree='{ "icon" : "fa icon-grid icon-state-success icon-lg" }'>
+                                            <a   href="#">
+ 													Workflow
+                                            </a>
+                                            <ul>
+                                                <li>Another node</li>
+                                            </ul>
+                                        </li>
+                                        
+                                        <li   data-jstree='{ "icon" : "fa icon-clock icon-state-success icon-lg" }'>
+                                            <a   href="#">
+ 													Schedules
+                                            </a>
+                                            <ul>
+                                                <li>Another node</li>
+                                            </ul>
+                                        </li>
+                                        
+                                        <li   data-jstree='{ "icon" : "fa icon-directions icon-state-success icon-lg" }'>
+                                            <a   href="#">
+ 													Monitoring
+                                            </a>
+                                            <ul>
+                                                <li>Another node</li>
+                                            </ul>
+                                        </li>
+                                        
+                                        <li   data-jstree='{ "icon" : "fa icon-shuffle icon-state-success icon-lg" }'>
+                                            <a   href="#">
+ 													Load From Local
+                                            </a>
+                                            <ul>
+                                                <li>Another node</li>
+                                            </ul>
+                                        </li>
+                                        
+                                     </ul>
+                                    
+                                </li>
+                                
+                            </ul>
+        </li> -->
+  <!--       <li class="start nav-item">
+            <a ui-sref="dashboard">
+                <i class="icon-home"></i>
+                <span class="title">Dashboard</span>
+            </a>
+        </li>
+        
+          <li class="nav-item">
+            <a ui-sref="blank">
+                <i class="icon-list"></i>
+                <span class="title">Repository</span>
+            </a>
+        </li> -->
+<!--    #f2f5f9-->         
+         
+       </ul>
+    <!-- END SIDEBAR MENU -->
+</div>
+
+<script>
+function customMenu(node) {
+	//alert(angular.toJson(node,true));
+	//alert(node.parents[node.parents.length - 1]);  
+//Show a different label for renaming files and folders
+    if(  node.parent  == "#"  || node.id.split('_')[0]  == "user")
+    	{
+    	
+    	 var items = {
+			      "Create" : {
+			          "label" : "Create folder",
+			          "action" : function () {  
+			        	         
+			        	        $('#tree_3 a').popover('destroy');
+                                var linkpopoverid=node.a_attr.id;
+			        	       // var userid=node.id.node.id.split('_')[0];
+			        	       //$('#'+node.a_attr.id).popover('destroy');
+			        	       $('#'+linkpopoverid).popover({
+			        	            placement:'right',
+			        	            title:"Create Folder",
+			        	            trigger:'manual',
+			        	            html:true,
+			        	            content: function() {
+			        	                return '<form  class="form-inline" role="form" ><div   class="form-group"> <input type="hidden" name="userid" id="userid" value="'+node.id+'"><input type="text" placeholder="Folder Name" id="foldername" name="foldername"  class="form-control"  ><button type="button" class="btn btn-primary btn-xs" onclick="folderformsubmit()">Submit</button> <button type="button" class="btn btn-primary btn-xs"  onclick="popoverdestory();"  >Close</button></div></form>';
+			        	            } 
+			        	        });
+			        	        $('#'+linkpopoverid).popover('show');
+			        	     
+			        	    //$('#'+node.a_attr.id).popover('destroy');
+			        	    //$("#user_1_anchor").popover(popOverSettings);
+			        	  //$('#myModal').modal('toggle');
+						}
+			      }
+			   };
+    	 
+    	}
+    else if ( node.id.split('_')[1]  == 'folder' ) { //If node is a folder
+		 var items = {
+			      "Create" : {
+			          "label" : "Create "+node.id.split('_')[0],
+			          "action" : function () {  
+			        	  global=node;
+			        	  if( node.id =='mapping')
+			        		  {
+			        		   $('.note-info').hide('toogle');
+			        		   $('#mapping_source_destination').show('toogle');
+			        		  }
+			        	  else
+			        		  {
+			        		   $('.note-info').show('toogle');
+			        		   $('#mapping_div').hide('toogle');
+			        		   $('#mapping_source_destination').hide('toogle');
+			        		   
+			              $('#connId').val('1');
+			        	  $('.con-close-modal-title').html('Create New Connection');
+			        	  $('#connectionForm')[0].reset();
+			        	  angular.element('#con-close-modal').modal('show');
+			        	  //angular.element('#connectionmodal2').modal('show'); 
+			        	  //angular.element(document.getElementById('ModalDemoCtrl')).scope().open();
+			        		  }
+}
+			      }
+			   };
+		   }
+	else if( node.parent.split('_')[1] == "folder") 
+	{
+	var items = {
+   "Edit" : {
+       "label" : "Edit",
+       "action" : function () {  
+    	   var node_id=node.id.split('_'); 
+           var connection_id= node_id[1];  
+           $('#connId').val(connection_id);
+           //alert(JSON.stringify(allconnection));
+          // angular.element('#con-close-modal').modal('show'); 
+           var editconnection_object=getObjects(allconnection, 'id',connection_id);
+           //alert(editconnection_object[0].id);
+           setupEditForm(editconnection_object[0]);
+           //var scope = angular.element($("#con-close-modal")).scope();
+          // alert(JSON.stringify(scope))
+           //scope.connectionType = "Redshift";
+      
+           //scope.$apply();
+           $('.con-close-modal-title').html('Edit Connection');
+           angular.element('#con-close-modal').modal('show');
+           }
+   },
+   "delete" : {
+      "label" : "Delete",
+      "action" : function () {  }
+   }
+  };
+	}
+
+return items;
+}
+
+function contextualMenuSample() {
+	
+	$('#jstree-proton-2').jstree({
+		"state" : { "key" : "demo2" },
+		'plugins': ["wholerow","contextmenu", "state", "types"],
+        'core': {
+            'themes': {
+                'name': 'proton',
+                'responsive': true
+            },
+            "check_callback" : function(operation, node, node_parent, node_position, more) {
+             	// operation can be 'create_node', 'rename_node', 'delete_node', 'move_node' or 'copy_node'
+                 // in case of 'rename_node' node_position is filled with the new node name
+             	alert(operation);
+             	return true;
+             }
+        }
+});
+	
+	// An example of responsive jsTree with wholerow and checbox plugins.
+    $('#tree_3').jstree({
+		'plugins': ["wholerow","contextmenu", "state", "types"],
+        'core': {
+            'data': [{
+                    "text": "Wholerow with checkboxes",
+                    "children": [{
+                        "text": "initially selected",
+                        "state": {
+                            "selected": true
+                        }
+                    }, {
+                        "text": "custom icon URL",
+                        "icon": "./assets/images/tree_icon.png"
+                    }, {
+                        "text": "initially open",
+                        "state": {
+                            "opened": true
+                        },
+                        "children": ["Another node"]
+                    }, {
+                        "text": "custom icon class",
+                        "icon": "glyphicon glyphicon-leaf"
+                    }]
+                },
+                "And wholerow selection"
+            ],
+            'themes': {
+                'name': 'proton',
+                'responsive': true
+            }
+        }
+    });
+}
+
+ 
+jQuery(document).ready(function() {  
+	//contextualMenuSample();
+	
+	//$('#jstree-proton-2')
+	 
+});
+ 
+</script>

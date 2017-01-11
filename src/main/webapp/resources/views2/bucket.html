@@ -1,0 +1,471 @@
+<style>
+.upload-drop-zone.drop {
+  border-color: #c14067;
+  border-width: 2px; 
+  border-style: dashed;
+  border: 2px solid #c14067!important;
+}
+.upload-drop-zone
+{
+border-width: 2px; 
+border-style: dashed;
+border-color: #c14067;
+display: block;
+position: relative; 
+z-index:1;
+min-height:500px;
+}
+.thumbnail
+{
+/* border-color: #410a60;;
+ */}
+.thumbnail .list-group-item-heading
+{
+color: #410a60;
+}
+.thumbnail .fa-folder,.thumbnail .fa-file
+{
+color: #c14067 !important;
+}
+
+.thumbnail:hover
+{
+border-color: #c14067;;
+color: #000;
+background-color: #c14067;;
+}
+.thumbnail:hover .list-group-item-heading
+{
+color: #fff;
+}
+.thumbnail:hover .fa-folder,.thumbnail:hover .fa-file
+{
+color: #fff !important;
+} 
+
+.thumbnail:active
+{
+border-color: #c14067;;
+color: #000;
+background-color: #c14067;;
+}
+.thumbnail:active .list-group-item-heading
+{
+color: #fff;
+}
+.thumbnail:active .fa-folder,.thumbnail:active .fa-file
+{
+color: #fff !important;
+}
+.thumbnail.drop 
+{
+border-color: #c14067;;
+color: #000;
+background-color: #c14067;;
+}
+.thumbnail.drop  .list-group-item-heading
+{
+color: #fff;
+}
+.thumbnail.drop  .fa-folder,.thumbnail.drop  .fa-file
+{
+color: #fff !important;
+} 
+
+.buttoncolor
+{
+border-color: #c14067;;
+color: #fff;
+background-color: #c14067;;
+}
+
+  .buttoncolor:hover
+{
+border-color: #c14067;;
+color: #fff;
+background-color: #c14067;;
+}
+.buttoncolor:active
+{
+border-color: #c14067;;
+color: #fff;
+background-color: #c14067;;
+} 
+
+.showdiv
+{
+ opacity: 0.2;position:absolute;  top: 0; left: 0;background-color: #000; width: 100%;height: 100%; z-index:1; border-width: 2px; 
+border-style: dashed;
+border-color: #c14067;
+}
+
+.hidediv
+{
+ display: none;
+}
+
+
+.thumbnailtable:hover
+{
+border-color: #c14067;;
+color: #fff;
+background-color: #c14067;;
+}
+ 
+.thumbnailtable:hover .fa-bitbucket
+{
+color: #fff !important;
+} 
+
+.thumbnailtable:active
+{
+border-color: #c14067;;
+color: #fff;
+background-color: #c14067;;
+}
+ 
+.thumbnailtable:active .fa-bitbucket
+{
+color: #fff !important;
+}
+.thumbnailtable.drop 
+{
+border-color: #c14067;;
+color: #fff;
+background-color: #c14067;;
+}
+ 
+.thumbnailtable.drop  .fa-bitbucket
+{
+color: #fff !important;
+} 
+
+ 
+</style>
+ 
+<div class="page-bar">
+                            <ul class="page-breadcrumb">
+                                <li>
+                                    <a href="index.html">Home</a>
+                                    <i class="fa fa-circle"></i>
+                                </li>
+                                <li>
+                                    <a ui-sref="mydrive">AWS Account</a>
+                                </li>
+                            </ul>
+ 
+                        </div>
+                        <!-- END PAGE BAR -->
+                        <!-- BEGIN PAGE TITLE-->
+                        
+                      <!--  <h1 class="page-title" style='color:#c14067'>
+                        	<i class="fa fa-bitbucket" style='color:#c14067'></i> My Buckets / {{bucketname}}
+                          	 <small>  Contain all Folder & Object </small>  
+                        </h1> -->
+                        <!-- END PAGE TITLE-->
+                        <!-- END PAGE HEADER-->
+
+                        <div class="row" ng-controller="BucketController">
+                        	     
+                        <div class="col-md-12" id="drop-zone"  >
+                        	 <div class="hidediv" id='overlaydiv' > </div> 
+	         					<div class="row">
+		         					<div class="col-md-6" >
+		         						<h1 class="page-title" style='color:#c14067'>
+		                        		<i class="fa fa-bitbucket" style='color:#c14067'></i>  My Buckets / {{bucketname}}
+		                        		</h1>
+		                        	</div>
+		                        	 <div class="col-md-6" >
+		                        	 	  <h1  style='color:#c14067' align="right">
+		                        	 	  
+                                          <span class="btn  buttoncolor fileinput-button">
+                                                <i class="fa fa-upload"></i>
+                                                <span> Local upload </span>
+                                                <input type="file" name="files" > 
+                                          </span>
+                                                
+                                            
+                                                  
+                                           <button type="button" class="btn  buttoncolor start">
+                                                <i class="fa fa-cloud"></i>
+                                                <span> Server upload </span>
+                                            </button>
+                                            
+                                           <button class="btn btn-default" type="button" id="refresh" title="Refresh"><i class="glyphicon glyphicon-refresh icon-refresh"></i></button>
+		                        	 	  	<a href="#" id="list" class="btn btn-default btn-sm buttoncolor"><span class="glyphicon glyphicon-th-list">
+	            							</span></a>   
+	            							<a href="#" id="grid" class="btn btn-default btn-sm buttoncolor"><span
+	                						class="glyphicon glyphicon-th"></span> </a>  
+
+		                          	 	  <button type="button" class="btn  btn-s buttoncolor"  data-toggle="modal" data-target="#modal-fullscreen" ng-click="createfolder()"><span class="glyphicon glyphicon-upload"></span> CREATE FOLDER</button>
+		                        	</div> 
+	                        	</div>	
+	                            <div class="portlet light" style="height: 400px;">  
+						 		<div class="portlet-body scroller"    style="height:400px;"> 
+						 		<div ng-include="bucketcontentUrl" ></div>
+						 		
+						 		</div>
+						 		</div>
+	                        <!-- 	<div class="full-height-content full-height-content-scrollable">
+		                        	<div class="full-height-content-body"  > -->
+							
+	
+
+ 	 
+			  							
+								<!-- 					
+		                            </div>
+						 		</div>  -->
+                        </div>	     
+	                        
+						<div class="col-md-5" id="details" style="display:none;">
+                          	 	<h1 class="page-title" style='color:#c14067'>
+                        		<i class="fa fa-bitbucket" style='color:#c14067'></i> S3 Buckets Details
+                          	 	<small>    </small>  
+                        	 	</h1> 
+	                        	<hr></hr>
+	                        	<div class="portlet light bordered"   style="height: 450px;">
+	            					<div class="portlet-title">
+	                					<div class="caption">
+						                    <i class="icon-layers" style='color:#c14067'></i>
+						                    <span class="caption-subject bold uppercase" style='color:#c14067'>Details </span>
+						                    <span class="caption-helper hide"></span>
+						                </div>
+						                <div class="actions">
+						                     
+						                     
+						                    <a class="btn btn-circle btn-icon-only btn-default removeclick" href="#">
+						                        <i class="fa fa-ban" style='color:#c14067'></i>
+						                    </a>
+						                </div>
+	            					</div>
+	            					<div class="portlet-body scroller"   id="detailsvalue" style="height:400px;"> 
+	             
+	            					</div>
+	        					</div>
+                        	</div> 
+	                         
+                        </div>
+                    <div id="static" class="modal fade" role="dialog" aria-labelledby="myModalLabel10" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                        <h4 class="modal-title">Upload file to {{bucketname}} </h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form action="#" class="form-horizontal" role="form">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3"  >Source</label>
+                                                                <div class="col-md-9">
+                                                                    <select class="bs-select form-control" data-show-subtext="true"    name="source"  >
+                                                                     <option data-icon="icon-info" value="">Select Source</option>
+                                                                      </select>
+                                                                </div>
+                                                            </div>
+ 
+                                                            <div class="form-group {{serverfilestatus}}">
+                                                                <label class="control-label col-md-3">Server File</label>
+                                                                <div class="col-md-9">
+                                                                    <select class="bs-select form-control"  data-live-search="true" data-size="5" data-show-subtext="true"   name="serverfile" >
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <div class="form-group {{serverfilestatus}}">
+                                                                <label class="control-label col-md-3">Create Job</label>
+                                                                <div class="col-md-3">
+                          											 <label>
+                          											 <input type="checkbox" id="jobcheckbox" class="input-inline icheck" data-checkbox="icheckbox_line-grey" data-label="Yes ?" unchecked >  
+                                                                </label>
+                                                                </div>
+                                                                <div class="col-md-6 {{jobinputstatus}}">
+                          											<input type="text" class="form-control" placeholder="Job Name">
+                                                                </div>
+                                                                 
+                                                            </div>
+                                                            
+                                                           <!--  <div class="form-group {{serverfilestatus}}">
+                                                                <label class="control-label col-md-3">Job Name</label>
+                                                                <div class="col-md-9">
+                          											 
+                                                                </div>
+                                                            </div> -->
+                                                            
+                                                        </form>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button class="btn grey-salsa btn-outline" data-dismiss="modal" aria-hidden="true">Close</button>
+                                                        <button type="submit" class="btn blue start"><i class="fa fa-upload"></i><span> Start upload </span> </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                          
+                  
+ <!-- template1.html -->
+<script type="text/ng-template" id="list.html">
+<div class="bootstrap-table"  >
+	<div class="fixed-table-container" style="padding-bottom: 0px; z-index:2; border-top: 1px solid #ddd;border: 0px solid #ddd; ">
+		<table class="table" style="padding: 10px!important; ">
+        <thead>
+        	<tr  >
+            	<th style="text-align: left;font-weight: bold;border-left: none!important; border-right: none!important;"  ><div class="th-inner">Name</div><div class="fht-cell"></div></th>
+            	<th style="text-align: left;font-weight: bold;border-left: none!important; border-right: none!important;"  ><div class="th-inner ">Size</div><div class="fht-cell"></div></th>
+            	<th style="text-align: left;font-weight: bold;border-left: none!important; border-right: none!important;"  ><div class="th-inner ">LastModified</div><div class="fht-cell"></div></th>
+           	</tr> 
+        </thead>
+        <tbody>
+			<tr  class="thumbnailtable drop-zone-bucket"   ng-repeat="buildjson in buildjson_bucketFolder"   on-finish-render="ngRepeatFinished" context-menu="menuOptions" id="{{buildjson.bucketName}}_{{ (buildjson.key).substring(0, (buildjson.key).length-1)}}" style="cursor: pointer;" ng-click="getbucketobject(buildjson.key);">
+				<td  style="text-align: left; word-wrap: break-word;;font-weight: bold;font-size: 12px;border-left: none!important; border-right: none!important;"><i class="fa fa-folder" id="thumbnailicon" ></i> {{buildjson.key}}</td>
+				<td style="text-align: left; word-wrap: break-word;font-size: 12px;font-weight: bold"> -- </td>
+				<td style="text-align: left; word-wrap: break-word;font-size: 12px;font-weight: bold"> --</td>
+			</tr> 
+			
+			<tr  class="thumbnailtable"   id="object{{$index}}"  ng-repeat="buildjson in buildjson_bucketObject"   context-menu="menuOptions2"     style="cursor: pointer;"  >
+				<td  style="text-align: left; word-wrap: break-word;font-size:12px;font-weight: bold;"><i class="fa fa-file" id="thumbnailicon" ></i> {{buildjson.key}} </td>
+				<td style="text-align: left; word-wrap: break-word;font-size:12px;font-weight: bold">  {{buildjson.size}} </td>
+				<td style="text-align: left; word-wrap: break-word;font-size:12px;font-weight: bold"> {{buildjson.lastModified | date:'EEE MMM d  HH:mm:ss Z yyyy'}}</td>
+			</tr>
+        </tbody>  
+        </table>
+   </div>
+</div>
+
+
+
+</script>
+<!--  <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" /> 
+ -->
+ <!-- template2.html -->
+<script type="text/ng-template" id="grid.html">
+<div id="products" class="row list-group"  style="position: relative;z-index:2">
+	<div class="item  col-xs-3 col-lg-3"   ng-repeat="buildjson in buildjson_bucketFolder"   on-finish-render="ngRepeatFinished" context-menu="menuOptions">
+		<div  class="thumbnail drop-zone-bucket"   id="{{buildjson.bucketName}}_{{ (buildjson.key).substring(0, (buildjson.key).length-1)}}" style="cursor: pointer;" ng-click="getbucketobject(buildjson.key);">
+			<div class="caption">  
+				 <h6 class="group inner list-group-item-heading" id="thumbnailheading" style="word-wrap: break-word;font-weight: bold;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+						<i class="fa fa-folder" id="thumbnailicon" ></i>  {{buildjson.key}}</h6>
+				</div>  
+			</div>
+		</div>          
+</div>									  	
+<div id="products" class="row list-group">
+	<div class="item  col-xs-3 col-lg-3"   ng-repeat="buildjson in buildjson_bucketObject"  context-menu="menuOptions2">
+		<div  class="thumbnail"  id="object{{$index}}"  style="cursor: pointer;" >
+			
+			<p class="group list-group-image" > <i class="fa fa-file-pdf-o fa-4x" aria-hidden="true" align="center"></i> </p>
+			<div class="caption">  
+			<h6 class="group inner list-group-item-heading"   style="word-wrap: break-word;font-weight: bold;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+			<i class="fa fa-file" id="thumbnailicon" ></i>  {{buildjson.key}} ,Size-{{buildjson.size}}</h6>
+			</div>  
+		</div>
+	</div>
+</div> 
+</script>                        
+ <style>
+ .modal {
+  text-align: center;
+  padding: 0!important;
+}
+
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.custom-menu {
+    display: none;
+    z-index: 1000;
+    position: absolute;
+}
+.custom-menu li {
+    padding: 15px 17px;
+    cursor: pointer;
+    width: 200px;
+}
+.custom-menu li:hover {
+border-color: #c14067;;
+color: #000;
+background-color: #c14067;;
+} 
+
+
+.custom-menu2 {
+    display: none;
+    z-index: 1000;
+    position: absolute;
+}
+.custom-menu2 li {
+    padding: 15px 17px;
+    cursor: pointer;
+    width: 200px;
+}
+.custom-menu2 li:hover {
+border-color: #c14067;;
+color: #000;
+background-color: #c14067;;
+} 
+ 
+</style>        
+<ul class='custom-menu list-group' >
+  <li  ng-click="custommenu('getProperties');"  id="" class="list-group-item"><i class="icon-settings font-green-sharp"></i> Get Properties</li>
+<!--   <li  ng-click="custommenu('getLink');" id="" class="list-group-item"><i class="icon-settings font-green-sharp"></i> Get Link</li>
+ -->  <li  ng-click="custommenu('deleteFolder');" id="" class="list-group-item"><i class="icon-settings font-green-sharp"></i> Delete Folder</li>
+</ul>
+<ul class='custom-menu2 list-group' >
+  <li  ng-click="custommenu2('getObjectDetails');"  id="" class="list-group-item"><i class="icon-settings font-green-sharp"></i> Get Object Detail</li>
+  <li  ng-click="custommenu2('ObjectPreview');" id="" class="list-group-item"><i class="icon-settings font-green-sharp"></i> Object Preview</li>
+  <li  ng-click="custommenu2('deleteObject');" id="" class="list-group-item"><i class="icon-settings font-green-sharp"></i> Delete Object</li>
+</ul>
+
+<script type="text/javascript">
+<!--
+
+//-->
+
+function contextmenufunction(event,id,type)
+{
+	  
+	 event.preventDefault(); 
+	 if(type =='folder')
+		 {
+	 $(".custom-menu>.list-group-item").attr('id',id);
+	 $(".custom-menu").finish().toggle(100).
+     css({
+    	top: event.pageY + "px",
+        left: event.pageX + "px"
+     });
+		 }
+	 if(type =='object')
+		{
+	 $(".custom-menu2>.list-group-item").attr('id',id);
+	 $(".custom-menu2").finish().toggle(100).
+	 css({
+    	top: event.pageY + "px",
+        left: event.pageX + "px"
+     });	 
+		}
+}
+$(document).bind("mousedown", function (e) {
+    if (!$(e.target).parents(".custom-menu").length > 0 ) {
+        $(".custom-menu").hide(100);
+    }
+    if ( !$(e.target).parents(".custom-menu2").length > 0) {
+        $(".custom-menu2").hide(100);
+    }
+});
+
+$('.removeclick').click(function(){
+	 $('#details').toggle('slow');
+	 $( "#drop-zone" ).removeClass( "col-md-8" ).addClass( "col-md-12" );  
+}); 
+</script> 

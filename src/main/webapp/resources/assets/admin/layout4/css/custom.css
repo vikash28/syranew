@@ -1,0 +1,364 @@
+/* here you can put your own css to customize and override the theme */
+
+/***
+Rounded Portlets
+***/
+/*
+.portlet {
+	border-radius: 4px !important;
+}
+
+.portlet .portlet-title {
+	border-radius: 4px 4px 0px 0px !important;
+}
+
+.portlet .portlet-body,
+.portlet .portlet-body .form-actions  {
+	border-radius: 0px 0px 4px 4px !important;
+}
+*/
+.btn-server-type:not (.active ) {
+	background-color: #ccc;
+	font-weight: normal;
+}
+
+.page-spinner-bar {
+	top: 50% !important;
+}
+
+.center {
+	text-align: center;
+}
+
+.selected {
+	background-color: #bbbbee !important;
+}
+
+.page-content-wrapper .page-content {
+	min-height: 500px !important;
+}
+
+.form-horizontal .control-label.left {
+	text-align: left !important;
+}
+
+.modal.modal-wide .modal-dialog {
+	width: 95%;
+}
+
+/* Syra blue */
+.button-submit {
+	background-color: #440e62 !important;
+}
+
+.btn.disabled, .btn[disabled], fieldset[disabled] .btn {
+	background-color: #d9d9d9 !important;
+}
+
+/* Align Modals Vertically Center */
+.modal {
+	text-align: center;
+}
+
+.modal:before {
+	display: inline-block;
+	vertical-align: middle;
+	content: " ";
+	height: 100%;
+}
+
+/*#myModal_newconnection.modal:before {
+  vertical-align: top !important;
+}*/
+
+#myModal_schedulelist.modal:before {
+	vertical-align: top !important;
+	margin: 15px auto !important;
+}
+
+#myModal_newconnection .modal-dialog {
+	margin: 15px auto !important;
+}
+
+.modal-dialog {
+	display: inline-block;
+	text-align: left;
+	vertical-align: middle;
+}
+/* Align Modals Vertically Center */
+
+td.details-control {
+	cursor: pointer;
+	text-align: center;
+}
+
+table.detailsRow {
+	float: left;
+	margin: 0 0 0 40px;
+	min-width: 45%;
+	max-width: 45%;
+}
+
+table.detailsRow td, th {
+	padding: 5px;
+}
+
+.table.dataTable .btn {
+	margin-top: 5px;
+}
+
+#myModal_newschedule .form-control[readonly] {
+	background-color: #fff !important;
+}
+
+#myModal_newschedule i.fa-edit {
+	color: purple;
+	font-weight: bold;
+}
+
+#myModal_newschedule .modal-dialog {
+	margin: 10px auto !important;
+}
+
+.tabbable-custom {
+	min-height: 290px;
+	overflow: visible !important;
+}
+
+#mappingsPortlet.portlet.box .popover {
+	color: #555555;
+	min-width: 300px;
+	top: 40px;
+}
+
+#mappingsPortlet .popover .arrow, #mappingsPortlet .popover .arrow::after
+	{
+	display: block !important;
+	left: 81% !important;
+}
+
+/* Set min-width to the Mappings table actions column */
+table#tableMappings thead tr th:last-child{
+	min-width: 375px !important;
+}
+
+.jstree-contextmenu {
+	z-index: 99999 !important;
+}
+
+.right {
+	text-align: right;
+}
+
+.btn.useFolder {
+	margin-top: 15px;
+}
+
+.ColVis {
+	margin-left: 10px;
+}
+
+.ColVis_collectionBackground {
+	z-index: 99997 !important;
+}
+
+.ColVis_collection {
+	z-index: 99998 !important;
+}
+
+.ColVis_catcher {
+	z-index: 99999 !important;
+}
+
+/* Start - Syra Theme Colors */
+.portlet.box.purple-syra>.portlet-title {
+	background-color: #8a2f52 !important;
+}
+
+.portlet.purple-syra>.portlet-title>.caption>i {
+	color: #fff !important;
+}
+
+.page-spinner-bar>div, .block-spinner-bar>div {
+	background-color: #8a2f52 !important;
+}
+
+.blue-steel.btn {
+	background-color: #440e62;
+}
+
+.blue-steel.btn:hover, .blue-steel.btn:focus, .blue-steel.btn:active,
+	.blue-steel.btn.active {
+	background-color: #390c52;
+}
+
+.btn-info:active, .btn-info.active {
+	background-color: #440e62;
+}
+
+.btn-info:active:hover, .btn-info.active:hover {
+	background-color: #390c52;
+}
+
+.btn-primary {
+	background-color: #440e62;
+}
+
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus,
+	.btn-primary.active {
+	background-color: #390c52;
+}
+
+.btn-primary:active:hover, .btn-primary.active:hover {
+	background-color: #7216a5;
+}
+
+.modal .modal-header {
+	background-color: #c14067 !important;
+	color: #fff;
+}
+
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li.active>a>i,
+	.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li.active.open>a>i,
+	.page-sidebar .page-sidebar-menu>li.active>a>i, .page-sidebar .page-sidebar-menu>li.active.open>a>i
+	{
+	color: #440e62;
+}
+
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li>a>i[class^="icon-"],
+	.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li>a>i[class*="icon-"],
+	.page-sidebar .page-sidebar-menu>li>a>i[class^="icon-"], .page-sidebar .page-sidebar-menu>li>a>i[class*="icon-"]
+	{
+	color: #8a2f52;
+}
+
+.page-sidebar-menu.page-sidebar-menu-closed>li:hover i {
+	color: #fff !important;
+}
+
+.page-sidebar-menu>li:hover i {
+	color: #fff !important;
+}
+
+.page-sidebar-menu .active a i {
+	color: #fff !important;
+}
+
+.blue.btn {
+	background-color: #440e62;
+}
+
+.blue.btn:focus, .blue.btn:hover, .blue.btn:active, .blue.btn.active {
+	background-color: #390c52;
+}
+
+.form-wizard .steps>li.active>a.step .number {
+	background-color: #8a2f52;
+}
+
+.progress>.progress-bar-success {
+	background-color: #8a2f52;
+}
+
+.alert-info {
+	background-color: #89c4f4;
+}
+
+.blue.btn:active:hover, .blue.btn.active:hover {
+	background-color: #7216a5;
+}
+
+.blue-steel.btn:active:hover, .blue-steel.btn.active:hover {
+	background-color: #7216a5;
+}
+
+.btn.btn-sm.green-meadow.tooltips.addNew {
+	background: #440e62 none repeat scroll 0 0;
+}
+
+.btn.btn.green-meadow.addNew {
+	background: #440e62 none repeat scroll 0 0;
+}
+
+.close {
+	opacity: 0.5 !important;
+}
+
+.close:focus, .close:hover {
+	opacity: 1.0 !important;
+}
+
+.page-header .page-actions h2 {
+	margin-bottom: 0px !important;
+	margin-top: 0px !important;
+	line-height: 1.2em !important;
+}
+
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li.active>a,
+	.page-sidebar .page-sidebar-menu>li.active>a {
+	border-left: 3px solid #8a2f52 !important;
+}
+
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li.active>a,
+	.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li.active.open>a,
+	.page-sidebar .page-sidebar-menu>li.active>a, .page-sidebar .page-sidebar-menu>li.active.open>a
+	{
+	background: #c14067 none repeat scroll 0 0;
+	color: #fff;
+}
+
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li:hover>a,
+	.page-sidebar .page-sidebar-menu>li:hover>a
+	{
+	background: #c14067 none repeat scroll 0 0 !important;
+	color: #fff !important;
+}
+
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li.open>a,
+	.page-sidebar .page-sidebar-menu>li.open>a
+	{
+	background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    color: #485a6a;
+    
+	/*background: #c14067 none repeat scroll 0 0;
+	color: #fff;*/
+}
+
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li.active>a:hover,
+	.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li.active.open>a:hover,
+	.page-sidebar .page-sidebar-menu>li.active>a:hover, .page-sidebar .page-sidebar-menu>li.active.open>a:hover
+	{
+	background: #c14067;
+}
+
+/* End - Syra Theme Colors */
+
+/* Resize the Sidebar and Main Content area */
+
+.page-header.navbar .page-logo {
+	width: 330px;
+}
+
+.page-sidebar {
+	width: 300px;
+}
+
+.page-content-wrapper .page-content {
+	margin-left: 300px;
+}
+
+/* End Resize the Sidebar and Main Content area */
+
+/* side menu reload */
+
+.page-sidebar-menu > li.heading > h3 {
+	float: left; 
+	clear: none;
+}
+
+.page-sidebar-menu >li >a.reload {
+	float: right; 
+	clear: none; 
+	padding: 0px;
+}
+/* End side menu reload */

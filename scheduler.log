@@ -1,0 +1,132 @@
+4419 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor 
+4436 [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl 
+4436 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.2.1 created. 
+4437 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized. 
+4438 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.2.1) 'scheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+ 
+4439 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'scheduler' initialized from an externally provided properties instance. 
+4439 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.2.1 
+4441 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@4beeb0e 
+5336 [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now 
+5337 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED started. 
+6122 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor 
+6123 [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl 
+6123 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.2.1 created. 
+6124 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized. 
+6124 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.2.1) 'scheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+ 
+6124 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'scheduler' initialized from an externally provided properties instance. 
+6124 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.2.1 
+6124 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@66a53104 
+6181 [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now 
+6181 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED started. 
+6845 [Thread-3] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED paused. 
+6848 [Thread-5] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED paused. 
+6851 [Thread-5] INFO  o.s.s.quartz.SchedulerFactoryBean - Shutting down Quartz Scheduler 
+6851 [Thread-5] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED shutting down. 
+6851 [Thread-5] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED paused. 
+6852 [Thread-5] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED shutdown complete. 
+6852 [Thread-3] INFO  o.s.s.quartz.SchedulerFactoryBean - Shutting down Quartz Scheduler 
+6852 [Thread-3] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED shutting down. 
+6852 [Thread-3] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED paused. 
+6852 [Thread-3] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED shutdown complete. 
+4642 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor 
+4665 [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl 
+4666 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.2.1 created. 
+4668 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized. 
+4669 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.2.1) 'scheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+ 
+4669 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'scheduler' initialized from an externally provided properties instance. 
+4669 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.2.1 
+4671 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@33db72bd 
+5922 [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now 
+5922 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED started. 
+6955 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor 
+6956 [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl 
+6956 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.2.1 created. 
+6956 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized. 
+6956 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.2.1) 'scheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+ 
+6956 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'scheduler' initialized from an externally provided properties instance. 
+6956 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.2.1 
+6956 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@626c19cf 
+7046 [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now 
+7046 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED started. 
+7739 [Thread-3] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED paused. 
+7739 [Thread-5] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED paused. 
+7743 [Thread-5] INFO  o.s.s.quartz.SchedulerFactoryBean - Shutting down Quartz Scheduler 
+7744 [Thread-5] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED shutting down. 
+7744 [Thread-5] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED paused. 
+7744 [Thread-3] INFO  o.s.s.quartz.SchedulerFactoryBean - Shutting down Quartz Scheduler 
+7744 [Thread-3] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED shutting down. 
+7744 [Thread-3] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED paused. 
+7744 [Thread-5] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED shutdown complete. 
+7744 [Thread-3] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED shutdown complete. 
+4089 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor 
+4136 [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl 
+4145 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.2.1 created. 
+4154 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized. 
+4163 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.2.1) 'scheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+ 
+4172 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'scheduler' initialized from an externally provided properties instance. 
+4182 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.2.1 
+4190 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@3bbf9027 
+5054 [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now 
+5062 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED started. 
+5728 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor 
+5738 [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl 
+5746 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.2.1 created. 
+5759 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized. 
+5766 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.2.1) 'scheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+ 
+5773 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'scheduler' initialized from an externally provided properties instance. 
+5781 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.2.1 
+5789 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@41d16cc3 
+5869 [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now 
+5876 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED started. 
+6433 [Thread-3] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED paused. 
+6435 [Thread-5] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED paused. 
+6452 [Thread-3] INFO  o.s.s.quartz.SchedulerFactoryBean - Shutting down Quartz Scheduler 
+6454 [Thread-5] INFO  o.s.s.quartz.SchedulerFactoryBean - Shutting down Quartz Scheduler 
+6466 [Thread-3] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED shutting down. 
+6468 [Thread-5] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED shutting down. 
+6475 [Thread-3] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED paused. 
+6476 [Thread-5] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED paused. 
+6484 [Thread-3] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED shutdown complete. 
+6485 [Thread-5] INFO  org.quartz.core.QuartzScheduler - Scheduler scheduler_$_NON_CLUSTERED shutdown complete. 

@@ -1,0 +1,743 @@
+<!-- BEGIN PAGE BREADCRUMB -->
+<ul class="page-breadcrumb breadcrumb hide">
+	<li>
+		<a href="#">Home</a><i class="fa fa-circle"></i>
+	</li>
+	<li class="active">
+		Mappings
+	</li>
+</ul>
+<!-- END PAGE BREADCRUMB -->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+	<div class="col-md-12">
+		<div class="portlet box purple-syra" id="form_wizard_1">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="icon-magic-wand"></i>
+					<span ng-if="editTitle" class="step-title">Step 1 of 4 - {{editTitle}}</span>
+					<span ng-if="!editTitle" class="step-title">Step 1 of 4</span>
+				</div>
+				<div class="tools hidden-xs">
+					<!--a href="javascript:;" class="collapse">
+					</a>
+					<a href="#portlet-config" data-toggle="modal" class="config">
+					</a>
+					<a href="javascript:;" class="reload">
+					</a>
+					<a href="javascript:;" class="remove">
+					</a-->
+				</div>
+			</div>
+			<div class="portlet-body form">
+				<form action="#" class="form-horizontal" id="submit_form" method="POST">
+					<div class="form-wizard">
+						<div class="form-body">
+							<ul class="nav nav-pills nav-justified steps">
+								<li>
+									<a href="#tab1" data-toggle="tab" class="step active">
+										<span class="number">
+											1 </span>
+										<span class="desc">
+											<i class="fa fa-check"></i> Source &nbsp;
+										</span>
+									</a>
+								</li>
+								<li>
+									<a href="#tab2" data-toggle="tab" class="step">
+										<span class="number">
+											2 </span>
+										<span class="desc">
+											<i class="fa fa-check"></i> Target &nbsp;
+										</span>
+									</a>
+								</li>
+								<li>
+									<a href="#tab3" data-toggle="tab" class="step">
+										<span class="number">
+											3 </span>
+										<span class="desc">
+											<i class="fa fa-check"></i> Mapping </span>
+									</a>
+								</li>
+								<li>
+									<a href="#tab4" data-toggle="tab" class="step">
+										<span class="number">
+											4 </span>
+										<span class="desc">
+											<i class="fa fa-check"></i> Confirm </span>
+									</a>
+								</li>
+							</ul>
+							<div id="bar" class="progress progress-striped" role="progressbar">
+								<div class="progress-bar progress-bar-success">
+								</div>
+							</div>
+							<div>
+								<div class="tab-content">
+									<div class="alert alert-danger display-none">
+										<button class="close" data-dismiss="alert"></button>
+										You have some form errors. Please check below.
+									</div>
+									<div class="alert alert-success display-none">
+										<button class="close" data-dismiss="alert"></button>
+										Your form validation is successful!
+									</div>
+									<div class="tab-pane active" id="tab1">
+										<input type="hidden" class="form-control" id="sourceConnId" value="-1" />
+
+										<div class="row" style="margin: 75px auto;" ng-class="sourceSelected != 'YES' ? 'sourceActive' : 'sourceDisabled'">
+											<div class="col-md-8 col-md-offset-2" style="text-align:center;">
+												<a data-toggle="modal" data-target="#myModal_source_connections" class="btn btn blue chooseExisting" href="#" data-original-title="Choose from existing connections.." data-placement="bottom" data-container="body">
+													<i class="icon icon-link"></i>Choose from Existing Connections</a>&nbsp;&nbsp;&nbsp;
+
+												<a data-toggle="modal" data-target="#myModal_newconnection" class="btn btn green-meadow addNew" href="#" data-original-title="Add a New Connection.." data-placement="bottom" data-container="body">
+													<i class="fa fa-plus"></i>Add a New Connection</a>
+											</div>
+										</div>
+
+										<div class="row" ng-class="sourceSelected == 'YES' ? 'sourceActive' : 'sourceDisabled'">
+											<div class="form-group hide">
+												<label class="control-label col-md-3">Server
+													<span class="required">
+														* </span>
+												</label>
+												<div class="btn-group btn-group">
+													<label class="btn btn-info btn-server-type" ng-model="serverType" btn-radio="'Hive'">Hive</label>
+													<label class="btn btn-info btn-server-type" ng-model="serverType" btn-radio="'HDFS'">HDFS</label>
+													<label class="btn btn-info btn-server-type" ng-model="serverType" btn-radio="'Local'">Local</label>
+												</div>
+											</div>
+
+											<h3 class="block center" style="margin-top: 0px; padding-top: 0px"><b>{{ serverType }}</b> connection details</h3>
+
+											<div class="hiveServerInfo" ng-class="serverType == 'Hive' ? 'serverTypeActive' : 'serverTypeDisabled'">
+												<div class="form-group">
+													<label class="control-label col-md-3">Hive Thrift Server
+														<span class="required">
+															* </span>
+													</label>
+													<div class="col-md-5">
+														<input type="text" class="form-control" name="hiveThriftServer" value="" />
+														<span class="help-block">
+															Provide your Hive Thrift Server </span>
+													</div>
+												</div>
+											</div>
+
+											<div class="hdfsServerInfo" ng-class="serverType == 'HDFS' ? 'serverTypeActive' : 'serverTypeDisabled'">
+												<div class="form-group">
+													<label class="control-label col-md-3">HDFS Connection String
+														<span class="required">
+															* </span>
+													</label>
+													<div class="col-md-5">
+														<input type="text" class="form-control" name="hdfsConnectionString" value="" />
+														<span class="help-block">
+															Provide your HDFS Connection String </span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-3">HDFS Path
+														<span class="required">
+															* </span>
+													</label>
+													<div class="col-md-5">
+														<input type="text" class="form-control" name="hdfsPath" value="" />
+														<span class="help-block">
+															Provide your HDFS Path </span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-3">HDFS Access User
+														<span class="required">
+															* </span>
+													</label>
+													<div class="col-md-5">
+														<input type="text" class="form-control" name="hdfsAccessUser" value="" />
+														<span class="help-block">
+															Provide your HDFS Access User </span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-sm-3">Separator
+														<span class="required">
+															* </span>
+													</label>
+													<div class="col-sm-3">
+														<input type="text" class="form-control" name="hdfsFieldDelim" value="" />
+														<span class="help-block">
+															Provide the Field Separator </span>
+													</div>
+												</div>
+											</div>
+											<div class="localServerInfo" ng-class="serverType == 'Local' ? 'serverTypeActive' : 'serverTypeDisabled'">
+												<div class="form-group">
+													<label class="control-label col-md-3">S3 File
+														<span class="required">
+															* </span>
+													</label>
+													<div class="col-md-7">
+														<input type="text" class="form-control" name="s3FileName" value="" readonly/>
+														<span class="help-block">
+															S3 File</span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-3">S3 File URL
+														<span class="required">
+															* </span>
+													</label>
+													<div class="col-md-7">
+														<input type="text" class="form-control" name="s3FileUrl" value="" readonly/>
+														<span class="help-block">
+															S3 File URL</span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-sm-3">Separator
+														<span class="required">
+															* </span>
+													</label>
+													<div class="col-sm-3">
+														<input type="text" class="form-control" name="s3FieldDelim" value="" />
+														<span class="help-block">
+															Provide the Field Separator </span>
+													</div>
+												</div>
+											</div>
+
+											<div class="center">
+												<a href="javascript:;" class="btn yellow button-changesource" ng-click="changeSource()">
+													Change Source
+												</a>
+											</div>
+										</div>
+									</div>
+									<div class="tab-pane" id="tab2">
+										<input type="hidden" class="form-control" id="targetConnId" value="-1" />
+
+										<div class="row" style="margin: 75px auto;" ng-class="targetSelected != 'YES' ? 'targetActive' : 'targetDisabled'">
+											<div class="col-md-8 col-md-offset-2" style="text-align:center;">
+												<a data-toggle="modal" data-target="#myModal_target_connections" class="btn btn blue chooseExisting" href="#" data-original-title="Choose from existing connections.." data-placement="bottom" data-container="body">
+													<i class="icon icon-link"></i>Choose from Existing Connections</a>&nbsp;&nbsp;&nbsp;
+
+												<a data-toggle="modal" data-target="#myModal_newconnection" class="btn btn green-meadow addNew" href="#" data-original-title="Add a New Connection.." data-placement="bottom" data-container="body">
+													<i class="fa fa-plus"></i>Add a New Connection</a>
+											</div>
+										</div>
+
+										<div ng-class="targetSelected == 'YES' ? 'targetActive' : 'targetDisabled'">
+											<div class="form-group hide">
+												<label class="control-label col-md-3">Server
+													<span class="required">
+														* </span>
+												</label>
+												<div class="btn-group btn-group">
+													<label class="btn btn-info btn-target-server-type" ng-model="targetServerType" btn-radio="'Hive'">Hive</label>
+													<label class="btn btn-info btn-target-server-type" ng-model="targetServerType" btn-radio="'Redshift'">Redshift</label>
+												</div>
+											</div>
+
+											<h3 class="block center" style="margin-top: 0px; padding-top: 0px">
+												<b>{{ targetServerType }}</b> connection details</h3>
+
+											<div class="hiveServerInfo2" ng-class="targetServerType == 'Hive' ? 'serverTypeActive' : 'serverTypeDisabled'">
+												<div class="form-group">
+													<label class="control-label col-md-3">Hive Thrift Server
+														<span class="required">
+															* </span>
+													</label>
+													<div class="col-md-5">
+														<input type="text" class="form-control" name="hiveThriftServer2" value="" />
+														<span class="help-block">
+															Provide your Hive Thrift Server </span>
+													</div>
+												</div>
+											</div>
+
+											<div class="redshiftServerInfo" ng-class="targetServerType == 'Redshift' ? 'serverTypeActive' : 'serverTypeDisabled'">
+												<div class="form-group">
+													<label class="control-label col-md-3">Redshift DB URL
+														<span class="required">
+															* </span>
+													</label>
+													<div class="col-md-5">
+														<input type="text" class="form-control" name="redshiftDBURL" value="" />
+														<span class="help-block">
+															Provide your Redshift DB URL </span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-3">Redshift User
+														<span class="required">
+															* </span>
+													</label>
+													<div class="col-md-5">
+														<input type="text" class="form-control" name="redshiftUser" value="" />
+														<span class="help-block">
+															Provide your Redshift User name </span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-3">Redshift Password
+														<span class="required">
+															* </span>
+													</label>
+													<div class="col-md-5">
+														<input type="password" class="form-control" name="redshiftPassword" value="" />
+														<span class="help-block">
+															Provide your Redshift Password </span>
+													</div>
+												</div>
+
+												<h3 class="block center">Amazon S3 Details</h3>
+
+												<div class="form-group">
+													<label class="control-label col-md-3">S3 Access Key
+														<span class="required">
+															* </span>
+													</label>
+													<div class="col-md-5">
+														<input type="text" class="form-control" name="s3AccessKey" value="" />
+														<span class="help-block">
+															Provide your S3 Access Key </span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-3">S3 Secret Key
+														<span class="required">
+															* </span>
+													</label>
+													<div class="col-md-5">
+														<input type="text" class="form-control" name="s3SecreteKey" value="" />
+														<span class="help-block">
+															Provide your S3 Secret Key </span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label col-md-3">HDFS Temp Directory
+														<span class="required">
+															* </span>
+													</label>
+													<div class="col-md-5">
+														<input type="text" class="form-control" name="hdfsTmpDir" value="" />
+														<span class="help-block">
+															Provide your HDFS Temp Directory </span>
+													</div>
+												</div>
+											</div>
+
+											<div class="center">
+												<a href="javascript:;" class="btn yellow button-changetarget" ng-click="changeTarget()">
+													Change Target
+												</a>
+											</div>
+
+										</div>
+									</div>
+									<div class="tab-pane" id="tab3">
+										<div class="row">
+											<div class="col-md-6">
+												<div class="portlet light">
+													<div class="portlet-title">
+														<div class="caption">
+															<i class="fa fa-cogs font-green-sharp"></i>
+															<span class="caption-subject font-green-sharp bold uppercase">Source Schema - {{serverType}}</span>
+														</div>
+														<div class="tools">
+															<!--a href="javascript:;" class="collapse">
+															</a>
+															<a href="#portlet-config" data-toggle="modal" class="config">
+															</a-->
+															<a href="javascript:;" class="reload reload-source">
+															</a>
+															<!--a href="javascript:;" class="remove">
+															</a-->
+														</div>
+													</div>
+													<div class="portlet-body">
+														<div id="tree_source" class="tree-demo">
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="portlet light">
+													<div class="portlet-title">
+														<div class="caption">
+															<i class="fa fa-cogs font-green-sharp"></i>
+															<span class="caption-subject font-green-sharp bold uppercase">Target Schmea - {{targetServerType}}</span>
+														</div>
+														<div class="tools">
+															<!--a href="javascript:;" class="collapse">
+															</a>
+															<a href="#portlet-config" data-toggle="modal" class="config">
+															</a-->
+															<a href="javascript:;" class="reload reload-target">
+															</a>
+															<!--a href="javascript:;" class="remove">
+															</a-->
+														</div>
+													</div>
+													<div class="portlet-body">
+														<a class="btn blue btn-sm hide" id="btnSaveTree" href="javascript:;" style="float: right;">
+															<i class="fa fa-save"></i> Save </a>
+
+														<div id="tree_destination" class="tree-demo">
+														</div>
+														<!--div class="alert alert-info no-margin margin-top-10">
+															Note! Drag and drop objects from Source to Target for the migration
+														</div-->
+												
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-6">
+												<div class="alert alert-info no-margin margin-top-10">
+													Note! Drag and drop objects from Source to Target for the mapping
+												</div>
+											</div>
+											<!-- adding the save table note -->
+											<div class="col-md-6">
+												<div class="alert alert-info no-margin margin-top-10">
+													Note! Please click the Save button once done creating a table
+												</div>
+
+											</div>
+										</div>
+									</div>
+									<div class="tab-pane" id="tab4">
+										<h3 class="block">Confirm Mapping details</h3>
+										<div class="row">
+											<div class="col-md-8">
+												<h4 class="form-section">Source</h4>
+												<div class="hiveServerInfo" ng-class="serverType == 'Hive' ? 'serverTypeActive' : 'serverTypeDisabled'">
+													<div class="form-group">
+														<label class="control-label col-md-4">Hive Server:</label>
+														<div class="col-md-7">
+															<p class="form-control-static" data-display="hiveThriftServer">
+															</p>
+														</div>
+													</div>
+												</div>
+												<div class="hdfsServerInfo" ng-class="serverType == 'HDFS' ? 'serverTypeActive' : 'serverTypeDisabled'">
+													<div class="form-group">
+														<label class="control-label col-md-4">HDFS Connection String:</label>
+														<div class="col-md-7">
+															<p class="form-control-static" data-display="hdfsConnectionString">
+															</p>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-4">HDFS Path:</label>
+														<div class="col-md-7">
+															<p class="form-control-static" data-display="hdfsPath">
+															</p>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-4">HDFS Access User:</label>
+														<div class="col-md-7">
+															<p class="form-control-static" data-display="hdfsAccessUser">
+															</p>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-4">Separator:</label>
+														<div class="col-md-7">
+															<p class="form-control-static" data-display="hdfsFieldDelim">
+															</p>
+														</div>
+													</div>
+												</div>
+												<div class="localServerInfo" ng-class="serverType == 'Local' ? 'serverTypeActive' : 'serverTypeDisabled'">
+													<div class="form-group">
+														<label class="control-label col-md-4">S3 File:</label>
+														<div class="col-md-7">
+															<p class="form-control-static" data-display="s3FileName">
+															</p>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-4">S3 File URL:</label>
+														<div class="col-md-7">
+															<p class="form-control-static" data-display="s3FileUrl">
+															</p>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-4">Separator:</label>
+														<div class="col-md-7">
+															<p class="form-control-static" data-display="s3FieldDelim">
+															</p>
+														</div>
+													</div>
+												</div>
+												<h4 class="form-section">Destination</h4>
+												<div class="hiveServerInfo2" ng-class="targetServerType == 'Hive' ? 'serverTypeActive' : 'serverTypeDisabled'">
+
+													<div class="form-group">
+														<label class="control-label col-md-4">Target Hive Server:</label>
+														<div class="col-md-7">
+															<p class="form-control-static" data-display="hiveThriftServer2">
+															</p>
+														</div>
+													</div>
+												</div>
+												<div class="redshiftServerInfo" ng-class="targetServerType == 'Redshift' ? 'serverTypeActive' : 'serverTypeDisabled'">
+													<div class="form-group">
+														<label class="control-label col-md-4">Redshift DB URL:</label>
+														<div class="col-md-7">
+															<p class="form-control-static" data-display="redshiftDBURL">
+															</p>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-4">Redshift User:</label>
+														<div class="col-md-7">
+															<p class="form-control-static" data-display="redshiftUser">
+															</p>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-4">Redshift Password:</label>
+														<div class="col-md-7">
+															<p class="form-control-static"> *****
+															</p>
+														</div>
+													</div>
+													<h4 class="form-section">Amazon S3 Details</h4>
+													<div class="form-group">
+														<label class="control-label col-md-4">S3 Access Key:</label>
+														<div class="col-md-7">
+															<p class="form-control-static" data-display="s3AccessKey">
+															</p>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-4">S3 Secret Key:</label>
+														<div class="col-md-7">
+															<p class="form-control-static" data-display="s3SecreteKey">
+															</p>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-4">HDFS Temp Directory:</label>
+														<div class="col-md-7">
+															<p class="form-control-static" data-display="hdfsTmpDir">
+															</p>
+														</div>
+													</div>
+												</div>
+												<h4 class="form-section">Mappings</h4>
+												<div class="form-group">
+													<label class="control-label col-md-4">Selected Mappings:</label>
+													<div class="col-md-7">
+														<p class="form-control-static" id="divMappings">
+														</p>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<h4 class="form-section" id="migration-messages-header">Mapping Log</h4>
+												<div class="form-group">
+													<div class="col-md-12">
+														<p class="form-control-static" id="migration-messages">
+															Mapping log will be added here..
+														</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-actions">
+							<div class="row">
+								<div class="col-md-offset-3 col-md-9">
+									<a href="javascript:;" class="btn default button-previous">
+										<i class="m-icon-swapleft"></i> Back </a>
+									<a href="javascript:;" class="btn blue button-next">
+									Continue <i class="m-icon-swapright m-icon-white"></i>
+									</a>
+									<a href="javascript:;" class="btn blue button-submit">
+									Submit <i class="m-icon-swapright m-icon-white"></i>
+									</a>
+									<a href="javascript:;" class="btn green button-savemappings" data-toggle="modal" data-toggle="modal" data-target="#myModal_save_mapping">
+									Save Mappings <i class="fa fa-save"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- BEGHIN ADD CONNECTION MODAL-->
+	<div add-connection ng-controller="BasicConnectionsController"></div>
+	<!-- END ADD CONNECTION MODAL-->
+
+	<!-- SOURCE CONNECTIONS MODEL -->
+	<div role="dialog" class="modal fade bs-modal-lg" id="myModal_source_connections" tabindex="-1">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+					<h4 class="modal-title"><i class="icon-link"></i> Source - Choose from existing connections..</h4>
+				</div>
+				<div class="modal-body">
+					<p />
+					<!-- BEGIN SOURCE CONNECTOINS TABLE -->
+					<div class="row">
+						<div class="col-sm-12 col-sm-offset-0">
+							<table class="table table-striped table-bordered table-hover" id="tableSourceConnections">
+								<thead>
+									<tr>
+										<th class="font-grey-gallery">
+											Connection Name
+										</th>
+										<th class="font-grey-gallery">
+											Server
+										</th>
+										<th class="font-grey-gallery">
+											URL
+										</th>
+										<th>
+										</th>
+									</tr>
+								</thead>
+							</table>
+						</div>
+					</div>
+					<!-- END SOURCE CONNECTOINS TABLE -->
+				</div>
+				<div class="modal-footer">
+					<button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END SOURCE CONNECTIONS MODAL-->
+
+	<!-- TARGET CONNECTIONS MODEL -->
+	<div role="dialog" class="modal fade bs-modal-lg" id="myModal_target_connections" tabindex="-1">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+					<h4 class="modal-title"><i class="icon-link"></i> Target - Choose from existing connections..</h4>
+				</div>
+				<div class="modal-body">
+					<p />
+					<!-- BEGIN TARGET CONNECTOINS TABLE -->
+					<div class="row">
+						<div class="col-sm-12 col-sm-offset-0">
+							<table class="table table-striped table-bordered table-hover" id="tableTargetConnections">
+								<thead>
+									<tr>
+										<th class="font-grey-gallery">
+											Connection Name
+										</th>
+										<th class="font-grey-gallery">
+											Server
+										</th>
+										<th class="font-grey-gallery">
+											URL
+										</th>
+										<th>
+										</th>
+									</tr>
+								</thead>
+							</table>
+						</div>
+					</div>
+					<!-- END TARGET CONNECTOINS TABLE -->
+				</div>
+				<div class="modal-footer">
+					<button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END TARGET CONNECTIONS MODAL-->
+
+	<!-- SAVE MAPPINGS MODEL -->
+	<div role="dialog" class="modal fade bs-modal" id="myModal_save_mapping" tabindex="-1" data-keyboard="false">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+					<h4 class="modal-title"><i class="icon-shuffle"></i> Save Mapping..</h4>
+				</div>
+				<div class="modal-body">
+					<form method="POST" id="mapping_form" class="form-horizontal" action="#">
+						<div class="form-group">
+							<label class="control-label col-md-3 col-md-offset-1">Mapping Name
+								<span class="required">
+									* </span>
+							</label>
+							<div class="col-md-7">
+								<input type="text" class="form-control" name="mappingName" value="" />
+								<span class="help-block">
+									Provide a name for this Mapping</span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-3 col-md-offset-1">Choose a Folder
+								<span class="required">
+									* </span>
+							</label>
+							<div class="col-md-7">
+								<div id="tree_folders" class="tree-demo"></div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-success" type="button" ng-click="save()">Save</button>
+					<button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END SAVE MAPPINGS MODAL-->
+</div>
+<!-- END PAGE CONTENT-->
+<script>
+	syraCommon.init(); // init Syra commons
+	FormWizard.init(); // Init Form Wizard
+	TableConnectionsMigrate.init(); //Init Connection Tables
+	UITree.init(); // init Tree
+	syraJsPlumb.init(); // init Syra jsPlumn connections
+</script>
+<style type="text/css">
+	.serverTypeActive {
+		display: auto;
+	}
+
+	.serverTypeDisabled {
+		display: none;
+	}
+
+	.sourceActive {
+		display: block;
+	}
+
+	.sourceDisabled {
+		display: none;
+	}
+
+	.targetActive {
+		display: block;
+	}
+
+	.targetDisabled {
+		display: none;
+	}
+</style>

@@ -1,0 +1,31 @@
+/* CSS for Booking Calendar Controller */
+
+
+
+
+/* Booking Form Modal CSS */
+
+.modal-title{font-weight:bold;} .form-control{background-color: #FFF;}
+.panel-primary > .panel-heading {background-color: #337ab7;}
+.navtab-bg{background: #E1EEF2;}
+
+
+.modal-footer {text-align: left;}
+
+label{font-weight:normal;}
+.booking_calendar_day_label{font-size:30px;font-weight:bold;}
+
+#room_row{background: #E1EEF2;margin-left:10%;margin-right: 1%;width: 97%;margin-left: 1%;margin-top: 30px;border-radius: 5px;padding-top: 20px;}
+.modal{background-color:#DDD;/*background: rgba(1,1,1,0.6);*/}
+
+.previous_next_buttons {margin-top:10px;color:#000;}
+.previous_next_buttons input{    border-radius: 5px;
+    padding: 0px;
+    width: 50px;
+    background: #B8C1C9;
+    border: 1px solid #000;
+    font-family: 'Nunito', sans-serif;
+    letter-spacing: 0.2px;
+    opacity: 0.93;}
+.previous_next_buttons input:hover{background-color:#000;border-radius:5px;color:#EEE;}
+

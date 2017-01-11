@@ -1,0 +1,6 @@
+/* CSS for Reservations report controller */
+
+.nav-tabs>li {float: right;margin-top: 5px;}
+.nav-tabs>li a {color:#000;font-weight:bold;}
+.navtab-bg,.nav.nav-tabs > li.active > a{border-radius:5px;}
+.tab-content {box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);color: #000;overflow: hidden;}

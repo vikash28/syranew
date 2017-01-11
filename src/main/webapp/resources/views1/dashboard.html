@@ -1,0 +1,172 @@
+<div ng-controller="DashboardController" id="DashboardController">
+<style type="text/css">
+.connectionTypeActive{
+	display: block;
+}
+.connectionTypeDisabled{
+	display: none;
+}
+.button_custom
+{
+    background-color: #67809F;
+    border: 1px solid #67809F;
+}
+.btn.dropdown-toggle.btn-default
+{
+padding: 5.5px 12px; border-bottom-left-radius: 4px;border-top-left-radius: 4px;
+}
+.jstree-children .jstree-node  .jstree-leaf
+{
+    font-size: 11px;
+}
+</style>    
+<div class="note note-info" style="display:non;">
+        <h3>Repository Dashboard
+         </h3>
+         <p>Create, Map, Tranform  connection refers to a process in database usage and especially in data warehousing.
+         </p>
+  
+    </div> 
+ 
+<!-- Connection Form -->    
+<div class="row hidediv" id="connection_form_div" >
+    <div class="col-md-12">
+        <!-- BEGIN PORTLET-->
+        <div class="portlet box blue-hoki">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa icon-share"></i>Create New Connection</div>
+                <div class="tools">
+                    <a href="javascript:;" class="collapse"> </a>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <!-- BEGIN FORM-->
+                <form  id="form-connection" class="form-horizontal form-bordered">
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Connection Name <span class="required">
+									* </span></label>
+                            <div class="col-md-4">
+                                <div class="input-group" style="text-align:left">
+                                    <input type="text" class="form-control" name="connectionName" value="" required>
+                                    <input type="hidden" class="form-control" id="connectionformtype" value="create"/>
+                                    <input type="hidden" class="form-control" name="connectionType" value="{{connectionType}}"/>
+                                    <input type="hidden"  id="connectionfolderid"  name="connectionfolderid" value=""/>
+                                    <input type="hidden"    name="createconnectionid" value=""/>
+                                    <span class="input-group-btn">
+                                        <a href="javascript:;" class="btn green" id="username1_checker">
+                                            <i class="fa fa-check"></i> Check </a>
+                                    </span>
+                                </div>
+                                <div class="help-block"> Type a Connection Name(E.g: connection1, connection2) and check its </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Server <span class="required">
+									* </span></label>
+                            <div class="col-md-4">
+                                <div class="input-icon right">
+                                    <div class="btn-group">
+										<label class="btn btn-info btn-server-type btn-server-type-Hive button_custom" ng-model="connectionType" btn-radio="Hive">Hive</label>
+										<label class="btn btn-info btn-server-type btn-server-type-HDFS button_custom" ng-model="connectionType" btn-radio="HDFS">HDFS</label>
+										<label class="btn btn-info btn-server-type btn-server-type-Redshift button_custom" ng-model="connectionType" btn-radio="Redshift">Redshift</label>
+									</div> </div>
+                                <div class="help-block">  Provide your <b>{{ connectionType }}</b> server details </div>
+                            </div>
+                        </div>
+                        <div class="form-group last password-strength" 	  ng-class="connectionType == 'Hive' ? 'connectionTypeActive' : 'connectionTypeDisabled'" >
+                            <label class="control-label col-md-3">Hive Thrift Server <span class="required">
+										* </span> </label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="hiveThriftServer" value="" >
+                                <span class="help-block"> Provide your Hive Thrift Server </span>
+                            </div>
+                        </div>
+                         <div class="form-group last password-strength"  ng-class="connectionType == 'HDFS' ? 'connectionTypeActive' : 'connectionTypeDisabled'" >
+                            <label class="control-label col-md-3">HDFS Connection String  <span class="required">
+										* </span> </label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="hdfsConnectionString" value=""  >
+                                <span class="help-block"> 	Provide your HDFS Connection String </span>
+                            </div>
+                        </div>
+                         <div class="form-group last password-strength"  ng-class="connectionType == 'HDFS' ? 'connectionTypeActive' : 'connectionTypeDisabled'" >
+                            <label class="control-label col-md-3">HDFS Path <span class="required">
+										* </span> </label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control"  name="hdfsPath" value=""  >
+                                <span class="help-block">Provide your HDFS Path </span>
+                            </div>
+                        </div>
+                        <div class="form-group last password-strength"  ng-class="connectionType == 'HDFS' ? 'connectionTypeActive' : 'connectionTypeDisabled'" >
+                            <label class="control-label col-md-3">HDFS Access User <span class="required">
+										* </span> </label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="hdfsAccessUser" value="" >
+                                <span class="help-block"> Provide your HDFS Access User </span>
+                            </div>
+                        </div>
+                        <div class="form-group last password-strength"  ng-class="connectionType == 'HDFS' ? 'connectionTypeActive' : 'connectionTypeDisabled'" >
+                            <label class="control-label col-md-3">Separator <span class="required">
+										* </span> </label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="hdfsFieldDelim" value="" >
+                                <span class="help-block"> Provide the Field Separator</span>
+                            </div>
+                        </div>
+                        <div class="form-group last password-strength"  ng-class="connectionType == 'Redshift' ? 'connectionTypeActive' : 'connectionTypeDisabled'" >
+                            <label class="control-label col-md-3">Redshift DB URL <span class="required">
+										* </span> </label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="redshiftDbUrl" value="" >
+                                <span class="help-block"> Provide your Redshift DB URL</span>
+                            </div>
+                        </div>
+                        <div class="form-group last password-strength"  ng-class="connectionType == 'Redshift' ? 'connectionTypeActive' : 'connectionTypeDisabled'" >
+                            <label class="control-label col-md-3">Redshift User <span class="required">
+										* </span> </label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="redshiftUser" value=""  >
+                                <span class="help-block"> Provide your Redshift User name </span>
+                            </div>
+                        </div>
+                        <div class="form-group last password-strength"  ng-class="connectionType == 'Redshift' ? 'connectionTypeActive' : 'connectionTypeDisabled'" >
+                            <label class="control-label col-md-3"> Redshift Password<span class="required">
+										* </span> </label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="redshiftPassword" value=""  >
+                                <span class="help-block"> Provide your Redshift Password </span>
+                            </div>
+                        </div>
+                      <!--   <div class="form-group last password-strength">
+                            <label class="control-label col-md-3">Separator <span class="required">
+										* </span> </label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="password" id="password_strength">
+                                <span class="help-block"> Type a password to check its strength </span>
+                            </div>
+                        </div> -->
+                        
+                    </div>
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="col-md-offset-3 col-md-9">
+                                <button type="submit" class="btn purple button_custom" ng-click="save()">
+                                    <i class="fa fa-check"></i> Submit</button>
+                                <button type="button" class="btn default" ng-click="reset()">Cancel</button>
+                                
+ 				             </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- END FORM-->
+            </div>
+        </div>
+        <!-- END PORTLET-->
+    </div>
+</div>
+<!-- Connection Form -->    
+</div>
+ 
+<!-- BEGIN MAIN JS & CSS -->

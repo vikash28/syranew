@@ -1,0 +1,144 @@
+[
+    {
+        "id": "mydatabase",
+        "parent": "#",
+        "text": "mydatabase",
+        "icon": "fa fa-database",
+        "state": {
+            "opened": true,
+            "disabled": false,
+            "selected": false
+        },
+        "li_attr": {}
+    },
+    {
+        "id": "mydatabase_mytable1",
+        "parent": "mydatabase",
+        "text": "mytable1",
+        "icon": "fa fa-table",
+        "state": {
+            "opened": true,
+            "disabled": false,
+            "selected": false
+        },
+        "li_attr": {
+            "data-output-format": "org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat",
+            "data-table-type": "EXTERNAL_TABLE",
+            "data-input-format": "org.apache.hadoop.mapred.TextInputFormat",
+            "data-field-delim": ",",
+            "data-data-location": "hdfs://localhost:8020/conf/mytable1",
+            "data-create-time": "Sun May 10 23:42:45 IST 2015",
+            "data-owner": "sany"
+        }
+    },
+    {
+        "id": "mydatabase_mytable1_mycol1",
+        "parent": "mydatabase_mytable1",
+        "text": "mycol1",
+        "icon": "fa fa-square-o",
+        "state": {
+            "opened": false,
+            "disabled": false,
+            "selected": false
+        },
+        "li_attr": {
+            "data-column-type": "text",
+            "data-column-length": "45"
+        }
+    },
+    {
+        "id": "mydatabase_mytable1_mycol2",
+        "parent": "mydatabase_mytable1",
+        "text": "mycol2",
+        "icon": "fa fa-square-o",
+        "state": {
+            "opened": false,
+            "disabled": false,
+            "selected": false
+        },
+        "li_attr": {
+            "data-column-type": "datetime",
+            "data-column-length": ""
+        }
+    },
+    {
+        "id": "mydatabase_mytable1_mycol3",
+        "parent": "mydatabase_mytable1",
+        "text": "mycol3",
+        "icon": "fa fa-square-o",
+        "state": {
+            "opened": false,
+            "disabled": false,
+            "selected": false
+        },
+        "li_attr": {
+            "data-column-type": "int",
+            "data-column-length": ""
+        }
+    },
+    {
+        "id": "mydatabase_anothertable",
+        "parent": "mydatabase",
+        "text": "anothertable",
+        "icon": "fa fa-table",
+        "state": {
+            "opened": true,
+            "disabled": false,
+            "selected": false
+        },
+        "li_attr": {
+            "data-output-format": "org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat",
+            "data-table-type": "EXTERNAL_TABLE",
+            "data-input-format": "org.apache.hadoop.mapred.TextInputFormat",
+            "data-field-delim": ",",
+            "data-data-location": "hdfs://localhost:8020/conf/anothertable",
+            "data-create-time": "Mon May 11 23:42:45 IST 2015",
+            "data-owner": "sany"
+        }
+    },
+    {
+        "id": "mydatabase_anothertable_empno",
+        "parent": "mydatabase_anothertable",
+        "text": "empno",
+        "icon": "fa fa-square-o",
+        "state": {
+            "opened": false,
+            "disabled": false,
+            "selected": false
+        },
+        "li_attr": {
+            "data-column-type": "int",
+            "data-column-length": ""
+        }
+    },
+    {
+        "id": "mydatabase_anothertable_sal",
+        "parent": "mydatabase_anothertable",
+        "text": "sal",
+        "icon": "fa fa-square-o",
+        "state": {
+            "opened": false,
+            "disabled": false,
+            "selected": false
+        },
+        "li_attr": {
+            "data-column-type": "double",
+            "data-column-length": "12,2"
+        }
+    },
+    {
+        "id": "mydatabase_anothertable_age",
+        "parent": "mydatabase_anothertable",
+        "text": "age",
+        "icon": "fa fa-square-o",
+        "state": {
+            "opened": false,
+            "disabled": false,
+            "selected": false
+        },
+        "li_attr": {
+            "data-column-type": "int",
+            "data-column-length": ""
+        }
+    }
+]

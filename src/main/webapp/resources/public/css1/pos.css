@@ -1,0 +1,40 @@
+
+          .nav-tabs>li {float: right;margin-top: 5px;}
+          .nav-tabs>li a {color:#000;font-weight:bold;}
+          .navtab-bg,.nav.nav-tabs > li.active > a{border-radius:5px;}
+          .tab-content {box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);color: #000;overflow: hidden;}
+
+          label{font-weight:normal;}
+          .form-control {background-color:#FFF;}
+
+          .logo-dimensions{font-size: 11px;margin-left: 10px;}
+
+          thead{font-weight:normal;border: 1px solid #ddd;background: #f2f2f2;}
+          .table-responsive{min-height: 400px;}
+          .dropdown-menu{min-width:100px;border:1px solid #DDD;}
+
+          .tab-content{min-height:500px;}
+          td, th{text-align:center;}    .btn-rounded{margin-top: 10px;} 
+          #cross_button{font-size: 14px;padding-left: 4px;padding-right: 4px;padding-top: 0px;padding-bottom: 0px;}
+          .square{background-color: #33b86c !important;border: 1px solid #33b86c !important;color: #FFF;font-weight: normal;padding: 15px;border-radius: 5px;font-size: 15px;margin-bottom: 10px;margin-right: 5px;width: 18%;height: 117px;overflow: hidden;float: left;display: block;}
+
+          .square:hover{background-color: #000 !important;border: 1px solid #212121 !important;}
+          #kot_table th{font-weight:normal;}
+
+          /* Restaurant Bill CSS */
+
+          .restaurant_bill{
+            font-family:Courier;width:350px;margin: 0 auto;padding:20px;
+          }
+
+          .restaurant_name{text-align:center;font-size:15px;text-transform:uppercase;}
+          .ion-ios7-telephone{font-weight:bold;font-size:15px;margin-right:5px;}
+          .restaurant_phone_number{text-align:center;}
+          .restaurant_address{text-align:center;}
+          .restaurant_header{margin-top:10px;margin-bottom:20px;border-top:1px dashed #000;border-bottom:1px dashed #000;text-transform:uppercase;}
+
+         .order_number{font-size:40px;font-weight:bold;}
+         .dish_name{text-transform:uppercase;text-align: center;color: #abb1b8;}
+
+         
+         .restaurant_table {font-weight:normal;color:#000;}

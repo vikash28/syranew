@@ -1,0 +1,92 @@
+[
+    {
+        "fieldDelim": null,
+        "inputFormat": null,
+        "outputFormat": null,
+        "tableType": null,
+        "dataLocation": null,
+        "createTime": null,
+        "owner": null,
+        "database": null,
+        "schema": [
+            {
+                "column": "id",
+                "datatype": "character varying(256)"
+            },
+            {
+                "column": "tweet",
+                "datatype": "character varying(256)"
+            },
+            {
+                "column": "created_at",
+                "datatype": "character varying(256\n)"
+            },
+            {
+                "column": "fcount",
+                "datatype": "character varying(256)"
+            },
+            {
+                "column": "rcount",
+                "datatype": "character\n varying(256)"
+            },
+            {
+                "column": "glocation",
+                "datatype": "character varying(256)"
+            },
+            {
+                "column": "country",
+                "datatype": "character varying(256)"
+            },
+            {
+                "column": "username",
+                "datatype": "character varying(256)"
+            }
+        ],
+        "tableName": "twitterbigdata2"
+    },
+    {
+        "fieldDelim": null,
+        "inputFormat": null,
+        "outputFormat": null,
+        "tableType": null,
+        "dataLocation": null,
+        "createTime": null,
+        "owner": null,
+        "database": null,
+        "schema": [
+            {
+                "column": "id",
+                "datatype": "character varying(256)"
+            },
+            {
+                "column": "tweet",
+                "datatype": "character varying(256)"
+            },
+            {
+                "column": "created_at",
+                "datatype": "character varying(256\n)"
+            },
+            {
+                "column": "fcount",
+                "datatype": "character varying(256)"
+            },
+            {
+                "column": "rcount",
+                "datatype": "character\n varying(256)"
+            },
+            {
+                "column": "glocation",
+                "datatype": "character varying(256)"
+            },
+            {
+                "column": "country",
+                "datatype": "character varying(256)"
+            },
+            {
+                "column": "username",
+                "datatype": "character varying(256)"
+            }
+        ],
+        "tableName": "twitterbigdata_analytics2"
+    }
+]

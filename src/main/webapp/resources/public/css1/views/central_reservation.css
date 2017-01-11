@@ -1,0 +1,22 @@
+/* CSS for Central Reservation controller */
+
+label{font-weight:normal;}
+.form-control {background-color:#FFF;}
+
+#checkbox1{width:20px;height:20px;}
+
+.modal-footer{text-align:center;}
+
+.fa{color:#000;font-size:20px;}
+.alert-warning{min-height:65px;}
+.alert-warning a{color:#000; font-size: 15px;text-transform: uppercase}
+.alert-warning a:hover{text-decoration:underline;}
+.fa-envelope:before, .fa-mobile:before, .fa-print:before{font-size: 30px;margin-right: 10px;vertical-align: middle;}
+#send-email-modal{width:70%;margin:0 auto;}
+
+.modal-title{font-weight:bold;}
+
+#bank_details_central_reservation{margin-left:20%;}
+#cheque_number, #bank_name, #cheque_date{width:130px;}
+
+

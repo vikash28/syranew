@@ -1,0 +1,13 @@
+/* CSS for account controller */
+
+.panel-title{width: 100%;text-align: center;font-size: 24px;}
+
+span{float:right;}.legal_address{margin-top:20px;margin-bottom:20px;border-bottom:1px solid #f2f2f2;}
+
+.panel-body.left p{border-bottom:1px solid #f2f2f2;padding:12px;}
+
+.table{margin-bottom: 10px;width: 80%;margin-left: 10%;margin-right: 10%;margin-top: 25px;}
+td.product_center{text-align:center;}
+
+.ion-checkmark-circled{color: #33b86c !important;font-size: 25px;}
+.ion-close-circled{color: #ef5350 !important;font-size: 25px;}

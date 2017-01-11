@@ -1,0 +1,421 @@
+<!-- BEGIN PAGE BREADCRUMB -->
+<ul class="page-breadcrumb breadcrumb hide">
+	<li>
+		<a href="#">Home</a><i class="fa fa-circle"></i>
+	</li>
+	<li class="active">
+		Mappings
+	</li>
+</ul>
+<!-- END PAGE BREADCRUMB -->
+<!-- BEGIN PAGE CONTENT-->
+<tt-error-messages></tt-error-messages>
+
+<div class="info-messages hide"
+	 ng-style="{'display': vm.infoMessages.length > 0 ? 'block' : 'none' , 'z-index': vm.infoMessages.length > 0 ? 10 : -10}">
+<img class="info-icon" src="/resources/img/info-icon.png">
+	<div class="messages-group">
+		<div ng-repeat="info in vm.infoMessages">{{info.description}}</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<!-- BEGIN MAPPINGS TABLE PORTLET-->
+		<div class="portlet box purple-syra" id="mappingsPortlet">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="icon-shuffle"></i>Mappings
+				</div>
+				<div class="actions">
+					<div class="btn-group">
+						<a class="btn btn-sm default" href="#" data-toggle="dropdown">
+						Columns <i class="fa fa-angle-down"></i>
+						</a>
+						<div id="mappings_column_toggler" class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
+							<label><input type="checkbox" checked data-column="1">Workflow Name</label>
+							<label><input type="checkbox" checked data-column="2">Folder</label>
+							<label><input type="checkbox" checked data-column="3">Source</label>
+							<label><input type="checkbox" checked data-column="4">Source Connection</label>
+							<label><input type="checkbox" checked data-column="5">Target</label>
+							<label><input type="checkbox" checked data-column="6">Target Connection</label>
+							<label><input type="checkbox" checked data-column="7">Table</label>
+							<label><input type="checkbox" checked data-column="8">Actions</label>
+						</div>
+					</div>
+				
+				  <a title="" id="foldersShowAll" class="btn btn-sm green-meadow" href="#">
+						<i class="fa fa-list"></i>Show All</a>						
+				  <a title="" id="folderspop" class="btn btn-sm yellow-saffron" href="#" 
+				  	style="margin-left: 0px !important">
+						<i class="fa fa-folder"></i><span id="folderName">Folders</span> <span class="caret"></a>						
+				</div>				
+			</div>
+			<div class="portlet-body">
+				<table class="table table-striped table-bordered table-hover" id="tableMappings">
+					<thead>
+						<tr>
+							<th></th>
+							<th class="font-grey-gallery">
+								Mapping Name
+							</th>
+							<th class="font-grey-gallery">
+								Folder
+							</th>
+							<th class="font-grey-gallery">
+								Source
+							</th>
+							<th class="font-grey-gallery">
+								Source Connection
+							</th>
+							<th class="font-grey-gallery">
+								Target
+							</th>
+							<th class="font-grey-gallery">
+								Target Connection
+							</th>
+							<th class="font-grey-gallery">
+								Table
+							</th>
+							<th>
+							</th>
+							<th>
+							</th>
+						</tr>
+					</thead>
+				</table>
+
+				<div class="popover bottom" id="foldersPopover">
+					<div class="arrow"></div>
+					<h3 class="popover-title">Folders</h3>
+
+					<div class="popover-content">
+						<div id="foldersdiv">
+							<div id="tree_folders" class="tree-demo"></div>
+							<div class="right">
+								<a href="javascript:;" class="btn btn-primary btn-sm useFolder">
+									<i class="fa fa-check"></i>Use</a>
+							</div>
+						</div>
+					</div>
+				</div>				
+			</div>
+		</div>
+		<!-- END MAPPINGS TABLE PORTLET-->	
+	</div>
+</div>
+<!-- NEW SCHEDULE MODEL -->
+<div role="dialog" class="modal fade bs-modal-lg" id="myModal_newschedule"  tabindex="-1" data-backdrop="static" data-keyboard="false">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+				<h4 class="modal-title"><i class="fa fa-calendar"></i> <span id="myModal_newschedule_title">Create New Schedule</span></h4>
+			</div>
+			<div class="modal-body form">
+				<form action="#" class="form-horizontal" id="scheduleForm" method="POST">
+					<div class="form-wizard">
+						<div class="form-body">
+							<div>
+								<div class="alert alert-danger display-none">
+									<button class="close" data-dismiss="alert"></button>
+									You have some form errors. Please check below.
+								</div>
+								<div class="alert alert-success display-none">
+									<button class="close" data-dismiss="alert"></button>
+									Your form validation is successful!
+								</div>
+								
+								<div class="form-group">
+									<label class="control-label col-sm-5">Name <span class="required">
+									* </span>
+									</label>
+									<div class="col-sm-6">
+										<input type="hidden" class="form-control" id="mappingId" value=""/>
+										<input type="text" class="form-control" id="scheduleName" value="" required />
+										<span class="help-block">
+										Provide a name for this schedule </span>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="control-label col-sm-5">Trigger Precheck File
+									</label>
+									<div class="col-sm-6">
+										<input type="text" class="form-control" id="triggerPrecheckFile" value=""/>
+										<span class="help-block">
+										This schedule will execute only if the mentioned File exists </span>
+									</div>
+								</div>
+								
+								<div class="tabbable-custom nav-justified">
+									<ul class="nav nav-tabs nav-justified">
+										<li class="active">
+											<a href="#tab_schedule" data-toggle="tab">
+											Schedule </a>
+										</li>
+										<li>
+											<a href="#tab_workflow" data-toggle="tab">
+											Workflow </a>
+										</li>
+									</ul>
+									<div class="tab-content">
+										<div class="tab-pane active" id="tab_schedule">
+											<div class="form-group">
+												<label class="control-label col-sm-5">Schedule <span class="required">
+												* </span>
+												</label>
+												<div class="col-sm-6">
+													<input id="cron" name="cron" class="form-control" required />
+													<span class="help-block">
+													Provide a schedule for this workflow </span>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-sm-5">Start at </label>
+												<div class="col-sm-6">
+													<div class="input-group date form_startat" data-date-startdate="+0d">
+														<input type="text" class="form-control" readonly="" size="16">
+														<span class="input-group-btn">
+														<button type="button" class="btn default date-set"><i class="fa fa-calendar"></i></button>
+														</span>
+													</div>
+													<!-- /input-group -->
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-sm-5">End at </label>
+												<div class="col-sm-6">
+													<div class="input-group date form_endat" data-date-startdate="+0d">
+														<input type="text" class="form-control" readonly="" size="16">
+														<span class="input-group-btn">
+														<button type="button" class="btn default date-set"><i class="fa fa-calendar"></i></button>
+														</span>
+													</div>
+													<!-- /input-group -->
+												</div>
+											</div>
+										</div>
+										<div class="tab-pane" id="tab_workflow">
+											<div class="form-group">
+												<label class="control-label col-sm-5">Start this schedule after <span class="required">
+													* </span></label>
+												<div class="col-sm-6">
+													<select class="form-control input-xlarge" name="wfParent" id="wfParent" required >
+														<option value="-1"></option>
+													</select>
+													<span class="help-block">
+													This schedule will start after completion of this parent task </span>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-sm-5">Priority <span class="required">
+													* </span></label>
+												<div class="col-sm-6">
+													<select class="form-control input-xsmall" name="wfPriority" id="wfPriority" required >
+														<option value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+														<option value="6">6</option>
+														<option value="7">7</option>
+														<option value="8">8</option>
+														<option value="9">9</option>
+														<option value="10">10</option>
+													</select>
+													<span class="help-block">
+													The order/rank of this schedule.</span>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-sm-5">Run only if parent task completed successfully <span class="required">
+													* </span></label>
+												<div class="col-sm-6">
+													<input type="checkbox" value="yes" name="wfParentExec" id="wfParentExec" checked>
+													<span class="help-block">
+													Run this schedule only if the parent task executed successfully </span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</form>			
+			</div>
+			<div class="modal-footer">
+				<button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+				<button class="btn btn-default" type="reset" ng-click="resetSchedule()">Reset</button>
+				<button class="btn btn-primary" type="submit" ng-click="saveSchedule()"><i class="fa fa-check"></i> Create Schedule</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END SCHEDULE MODAL-->
+
+<!-- LIST OF SCHEDULES MODEL -->
+<div role="dialog" class="modal modal-wide fade bs-modal-lg" id="myModal_schedulelist"  tabindex="-1" data-keyboard="false">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button aria-hidden="true" data-dismiss="modal" class="close" type="button"></button>
+				<h4 class="modal-title"><i class="fa fa-calendar"></i> <span id="myModal_schedulelist_title">Schedules</span></h4>
+			</div>
+			<div class="modal-body">
+				<!-- BEGIN LIST OF SCHEDULES PORTLET -->
+				<div class="portlet box red-sunglo">
+					<div class="portlet-title">
+						<div class="caption">
+							<i class="fa fa-calendar"></i>Schedules
+						</div>
+						<div class="tools">
+							<a class="collapse" href="javascript:;" data-original-title="" title="">
+							</a>
+							<a class="reload reload-schedules" href="javascript:;" data-original-title="" title="">
+							</a>
+							<a class="fullscreen" href="javascript:;" data-original-title="" title="">
+							</a>
+						</div>
+					</div>
+					<div class="portlet-body" style="height: auto;">
+						<!-- BEGIN LIST OF SCHEDULES TABLE -->
+						<div class="row">
+							<div class="col-sm-12 col-sm-offset-0">
+								<form id="ajaxJobForm">
+									<input type="hidden" name="jobName" id="jobName" value="-1" />
+								</form>
+								
+								<table class="table table-striped table-bordered table-hover" id="tableScheduleList">
+									<thead>
+										<tr>
+											<th class="font-grey-gallery">
+												Schedule Name
+											</th>
+											<th class="font-grey-gallery">
+												Cron Expression
+											</th>
+											<th class="font-grey-gallery">
+												Frequency
+											</th>
+											<th class="font-grey-gallery">
+												Start at
+											</th>
+											<th class="font-grey-gallery">
+												End at
+											</th>
+											<th class="font-grey-gallery">
+												Trigger Precheck File
+											</th>
+											<th class="font-grey-gallery">
+												Status
+											</th>
+											<th>
+											</th>
+										</tr>
+									</thead>
+								</table>
+							</div>
+						</div>
+						<!-- END LIST OF SCHEDULES TABLE -->
+					</div>
+				</div>
+				<!-- END LIST OF SCHEDULES PORTLET -->
+				
+				<!-- BEGIN LIST OF SCHEDULERLOGS PORTLET -->
+				<div class="portlet box blue-hoki">
+					<div class="portlet-title">
+						<div class="caption">
+							<i class="fa fa-file-text-o"></i>Logs
+						</div>
+						<div class="tools">
+							<a class="collapse" href="javascript:;" data-original-title="" title="">
+							</a>
+							<a class="reload reload-schedulelogs" href="javascript:;" data-original-title="" title="">
+							</a>
+							<a class="fullscreen" href="javascript:;" data-original-title="" title="">
+							</a>
+						</div>
+					</div>
+					<div class="portlet-body" style="height: auto;">
+						<!-- BEGIN LIST OF SCHEDULERLOGS TABLE -->
+						<div class="row">
+							<div class="col-sm-12 col-sm-offset-0">
+								<form id="ajaxJobFormSchedulerLog">
+									<input type="hidden" name="logName" id="logName" value="-1" />
+									<input type="hidden" name="logType" id="logType" value="JOB" />
+								</form>
+								
+								<table class="table table-striped table-bordered table-hover" id="tableSchedulerLogList">
+									<thead>
+										<tr>
+											<th class="font-grey-gallery">
+												Timestamp
+											</th>
+											<th class="font-grey-gallery">
+												Trigger Name
+											</th>
+											<th class="font-grey-gallery">
+												Log Type
+											</th>
+											<th class="font-grey-gallery">
+												Start Msg
+											</th>
+											<th class="font-grey-gallery">
+												Result
+											</th>
+										</tr>
+									</thead>
+								</table>
+							</div>
+						</div>
+					<!-- END LIST OF SCHEDULERLOGS TABLE -->
+					</div>
+				</div>
+				<!-- END LIST OF SCHEDULERLOGS PORTLET -->
+			</div>
+			<div class="modal-footer">
+				<button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END LIST OF SCHEDULES MODAL-->
+
+<!-- END PAGE CONTENT-->
+
+<script>
+		
+	$(document).ready(function(){
+			
+		/* ColVis for Log Table !! */
+		setTimeout(function(){
+			var colvis = new $.fn.dataTable.ColVis( oSchedulerLogTable );
+			$( colvis.button() ).insertBefore('#tableSchedulerLogList_filter');
+		},5000);
+		/* ColVis for Log Table !! */
+	
+		/* Datetime Moment.js */
+		$.fn.dataTable.moment = function ( format, locale ) {
+			var types = $.fn.dataTable.ext.type;
+		 
+			// Add type detection
+			types.detect.unshift( function ( d ) {
+				return moment( d, format, locale, true ).isValid() ?
+					'moment-'+format :
+					null;
+			} );
+		 
+			// Add sorting method - use an integer for the sorting
+			types.order[ 'moment-'+format+'-pre' ] = function ( d ) {
+				return moment( d, format, locale, true ).unix();
+			};
+		};
+		/* Datetime Moment.js */	
+	});
+	
+	syraCommon.init(); // init Syra commons		
+	TableMappings.init();
+</script>

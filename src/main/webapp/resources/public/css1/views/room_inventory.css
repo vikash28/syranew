@@ -1,0 +1,22 @@
+/* CSS for Room Inventory Push */
+
+.form-control{background:#FFF;}
+
+.nav-tabs>li {float: right;margin-top: 5px;}
+.nav-tabs>li a {color:#000;font-weight:bold;}
+.navtab-bg,.nav.nav-tabs > li.active > a{border-radius:5px;}
+.tab-content {box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);color: #000;overflow: hidden;}
+
+label{font-weight:normal;}
+.pager li>a, .pager li>span{color:#565656;}
+
+.room_inventory{vertical-align: middle;}
+thead{background: #DDD;} td{text-align:center;}
+
+.available, .available a{background-color: #33b86c !important;border: 1px solid #33b86c !important;color:#000;}
+.sold_out, .sold_out a{background-color: #ef5350 !important;border: 1px solid #ef5350 !important;color:#000;}
+.inventory_not_pushed{background-color: #ffd740 !important;border: 1px solid #ffd740 !important;color: #333333 !important;}
+.cm td{cursor:pointer;}
+
+.legend span.label{color:#000;font-weight:normal;padding: 5px 20px 5px 20px;}
+.table td.room_type{vertical-align: middle;}

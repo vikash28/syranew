@@ -1,0 +1,313 @@
+<!-- BEGIN PAGE HEADER-->
+<style>
+.upload-drop-zone.drop {
+  border-color: #c14067;
+  border-width: 2px; 
+  border-style: dashed;
+  border: 2px solid #c14067!important;
+}
+.upload-drop-zone
+{
+border-width: 2px; 
+border-style: dashed;
+border-color: #c14067;
+display: block;
+position: relative; 
+z-index:1;
+min-height:500px;
+}
+.thumbnail
+{
+/* border-color: #410a60;;
+ */}
+.thumbnail .list-group-item-heading
+{
+color: #410a60;
+}
+.thumbnail .fa-bitbucket
+{
+color: #c14067 !important;
+}
+
+.thumbnail:hover
+{
+border-color: #c14067;;
+color: #000;
+background-color: #c14067;;
+}
+.thumbnail:hover .list-group-item-heading
+{
+color: #fff;
+}
+.thumbnail:hover .fa-bitbucket
+{
+color: #fff !important;
+} 
+
+.thumbnail:active
+{
+border-color: #c14067;;
+color: #000;
+background-color: #c14067;;
+}
+.thumbnail:active .list-group-item-heading
+{
+color: #fff;
+}
+.thumbnail:active .fa-bitbucket
+{
+color: #fff !important;
+}
+.thumbnail.drop 
+{
+border-color: #c14067;;
+color: #000;
+background-color: #c14067;;
+}
+.thumbnail.drop  .list-group-item-heading
+{
+color: #fff;
+}
+.thumbnail.drop  .icon-settings
+{
+color: #fff !important;
+} 
+
+.buttoncolor
+{
+border-color: #c14067;;
+color: #fff;
+background-color: #c14067;;
+}
+
+  .buttoncolor:hover
+{
+border-color: #c14067;;
+color: #fff;
+background-color: #c14067;;
+}
+.buttoncolor:active
+{
+border-color: #c14067;;
+color: #fff;
+background-color: #c14067;;
+} 
+
+.showdiv
+{
+ opacity: 0.2;position:absolute;  top: 0; left: 0;background-color: #000; width: 100%;height: 100%; z-index:1; 
+}
+
+.hidediv
+{
+ opacity: 0.2;position:absolute;  top: 0; left: 0;background-color: #000; width: 100%;height: 100%; z-index:1; display: none;
+} 
+</style>
+
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a ui-sref="dashboard">Home</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a ui-sref="blank">My Drive</a>
+        </li>
+    </ul>
+    <div class="page-toolbar">
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" dropdown-menu-hover data-delay="1000" data-close-others="true"> Actions
+                <i class="fa fa-angle-down"></i>
+            </button>
+            <ul class="dropdown-menu pull-right" role="menu">
+                <li>
+                    <a href="#">
+                        <i class="icon-user"></i> New User </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-present"></i> New Event
+                        <span class="badge badge-success">4</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-basket"></i> New order </a>
+                </li>
+                <li class="divider"> </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-flag"></i> Pending Orders
+                        <span class="badge badge-danger">4</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-users"></i> Pending Users
+                        <span class="badge badge-warning">12</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<h3 class="page-title"> 
+    <!-- <button type="button" class="btn  btn-s buttoncolor"  data-toggle="modal" data-target="#modal-fullscreen" >
+                    <span class="glyphicon glyphicon-upload"></span> CREATE BUCKET</button> -->
+</h3>
+ 
+<!-- END PAGE HEADER-->
+<!-- BEGIN MAIN CONTENT -->
+<div class="row" ng-controller="BlankController">
+    <div class="col-md-12"  >
+        <!-- BEGIN: ACCORDION DEMO -->
+        <div class="portlet light {{dropzoneclass}}"  id="drop-zone"  >
+            <div class="hidediv" id='overlaydiv' > </div> 
+        
+            <div class="portlet-title">
+                <div class="caption font-green-sharp" >
+                    <i class="fa fa-bitbucket" style='color:#c14067'></i> 
+                    <span class="caption-subject bold uppercase" style='color:#c14067'>Bucket</span>
+                 </div>
+                 <div class="actions">
+                    <button type="button" class="btn  btn-s buttoncolor"  data-toggle="modal" data-target="#modal-fullscreen" ng-click="createbucket();">
+                    <span class="glyphicon glyphicon-upload"></span> CREATE BUCKET</button>
+                    
+                   <!--  <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                        <i class="icon-wrench"></i>
+                    </a> -->
+                </div>
+            </div>
+            <div class="portlet-body">
+			
+			
+			
+			<div id="products" class="row list-group"  style="position: relative;z-index:2">
+			
+			<div class="item  col-xs-3 col-lg-3"   ng-repeat="buildjson in buildjson_bucket"   on-finish-render="ngRepeatFinished">
+            <div  class="thumbnail drop-zone-bucket"  id="{{buildjson.name}}" style="cursor: pointer;" ng-click="getbucketobject(buildjson.name);">
+                  <div class="caption">  
+                    <h6 class="group inner list-group-item-heading" id="thumbnailheading" style="word-wrap: break-word;">
+                     <i class="fa fa-bitbucket" id="thumbnailicon" ></i>  {{buildjson.name}}</h6>
+                 </div>  
+            </div>
+            </div>
+            
+            
+            
+			</div>
+            
+			 
+			
+			</div>
+        </div>
+         <!-- BEGIN: ACCORDION DEMO -->
+    </div>
+</div>
+<style>
+.custom-menu {
+    display: none;
+      z-index: 1000;
+    position: absolute;
+  /*  overflow: hidden;
+    border: 1px solid #CCC; 
+    white-space: nowrap;
+    font-family: sans-serif;
+    background: #FFF;
+    color: #333;
+    border-radius: 5px;
+    padding: 0 */;
+}
+
+/* Each of the items in the list */
+.custom-menu li {
+    padding: 15px 17px;
+    cursor: pointer;
+    width: 200px;
+/*     list-style-type: none;
+    transition: all .3s ease; */
+}
+/*
+.custom-menu li:hover {
+    background-color: #DEF;
+} */
+ 
+</style>
+<ul class='custom-menu list-group'>
+ 
+  <li data-action="first" class="list-group-item"><i class="icon-settings font-green-sharp"></i> First item</li>
+  <li data-action="second" class="list-group-item"><i class="icon-settings font-green-sharp"></i> Second item</li>
+  <li data-action="third" class="list-group-item"><i class="icon-settings font-green-sharp"></i> Third item</li>
+ 
+<!--   <li data-action="first">Link</li>
+  <li data-action="second">Second thing</li>
+  <li data-action="third">Third thing</li> -->
+</ul>
+
+<!-- END MAIN CONTENT -->
+<!-- BEGIN MAIN JS-->
+<script>
+    // call any jquery or angularjs code ehre
+</script>
+<script language="javascript">
+/* $("#BlankControllerID").on("contextmenu",function(e){
+	 //alert();
+	 $("#rmenu").toggleClass("hide");
+     $("#rmenu").css(
+       {
+         position: "absolute",
+         top: e.pageY,
+         left: e.pageX
+       }
+     );
+     e.preventDefault();
+    //return false;
+ });  */
+ $("#drop-zone").on("contextmenu",function(event){
+	// $(document).bind("contextmenu", function (event) {
+      
+	    // Avoid the real one
+	    event.preventDefault();
+	    
+	    // Show contextmenu
+	    $(".custom-menu").finish().toggle(100).
+	    
+	    // In the right position (the mouse)
+	    css({
+	    	//position: "absolute",
+	    	top: event.pageY + "px",
+	        left: event.pageX + "px"
+	    });
+	});
+
+
+	// If the document is clicked somewhere
+	$(document).bind("mousedown", function (e) {
+	    
+	    // If the clicked element is not the menu
+	    if (!$(e.target).parents(".custom-menu").length > 0) {
+	        
+	        // Hide it
+	        $(".custom-menu").hide(100);
+	    }
+	});
+
+
+	// If the menu element is clicked
+	$(".custom-menu li").click(function(){
+	    
+	    // This is the triggered action name
+	    switch($(this).attr("data-action")) {
+	        
+	        // A case for each action. Your actions here
+	        case "first": alert("first"); break;
+	        case "second": alert("second"); break;
+	        case "third": alert("third"); break;
+	    }
+	  
+	    // Hide it AFTER the action was triggered
+	    $(".custom-menu").hide(100);
+	  });
+</script>
+
+<!-- BEGIN MAIN JS -->
